@@ -13,6 +13,18 @@ const PROMO_ACTIVA = "ninguna";
 // "regalo" → regalo 
 // "ninguna" → sin promoo
 
+const btn = document.getElementById("whatsapp-btn");
+
+
+if (btn) {
+  btn.addEventListener("click", () => {
+  //fbq('track', 'Contact');
+  const numero = "542291519731";
+  const mensaje = "Hola! Vengo del catálogo y tengo una consulta...";
+  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
+  })
+};
+
 function calcularCostoEnvio(cp) {
 
   if (!cp) return ENVIO_GENERAL;
@@ -686,16 +698,4 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   }
 
 
-
-const btn = document.getElementById("whatsapp-btn");
-
-
-if (btn) {
-  btn.addEventListener("click", () => {
-  //fbq('track', 'Contact');
-  const numero = "542291519731";
-  const mensaje = "Hola! Vengo del catálogo y tengo una consulta...";
-  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
-  })
-};
 
