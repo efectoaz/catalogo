@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Mayorista</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Oswald:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="titulo-contenedor">
+    <h1 class="titulo-animado">
+   Envíos a todo el país <span class="emoji"> 🇦🇷 </span>
+    </h1>
+    <nav>
+      <a href="contacto.html">Contacto</a>
+      <input type="text" id="search" placeholder="🔍 Buscá un producto..." style="margin-left:0.1rem; padding:0.3rem; border-radius:5px; border:none;">
+      <p id="no-results" style="display:none; text-align:center; color:#fff; margin-top:0.5rem;"></p>
+          <div id="aviso-envio-gratis" class="aviso"></div>
+    </nav>
+  </div>
+
+  <div id="carrito-contenedor">
+
+    <button id="carrito-btn" aria-label="Abrir carrito">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="carrito-count">0</span>
+    </button>
+
+    <div id="carrito-dropdown">
+     <span id="salir-carrito" style="cursor:pointer; float:left; font-size:20px; font-weight:bold; margin:5px;">❌</span>
+     <h3>🛍️           </h3> 
+     <h3>Tu pedido:</h3>
+     <ul id="carrito-items"></ul>
+     <div id="carrito-footer">
+      <p id="carrito-total">Total: $0</p>
+      <button id="vaciar-carrito" class="btn-vaciar">Vaciar carrito</button>
+      <button id="enviar-carrito" class="btn-enviar">Hacer pedido</button>
+
+    </div>
+    </div>
+
+  </div>
+
+</header>
+
+ <!-- Hero -->
+<aside class= "hero">
+  <div class="hero-overlay"></div>
+  <h2></h2>
+</aside>
+
+<main>
+  
+  <section class="destacados">
+       
+    <div class="portfolio">
+    
+      <div class="card">
+        <img src="img/animalPrint.jpg" alt="Animal print check! 🤎 N 35 " onclick="abrirModal(this)">
+        <h3>Animal print check! 🤎 N 35 </h3>
+        <p>$</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+     
+      <div class="card">
+        <img src="img/ojotasnegras.jpg" alt="Ojotas Clásicas" onclick="abrirModal(this)">
+        <h3>Ojotas clásicas negras, súper cómodas! 🌊🏝️☀️🖤 N 35/36 </h3>
+        <p>$</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card">
+        <img src="img/ojotasblancas.jpg" alt="" onclick="abrirModal(this)">
+        <h3>check!  </h3>
+        <p>$</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+  </section>
+
+
+    <!-- MODALl DE PRODUCTO -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-img" src="" alt="Producto">
+        <p id="modal-title" class="modal-title"></p>
+        <p id="modal-precio" class="modal-precio"></p>
+        <div class="modal-botones">
+          <button id="modal-agregar" class="btn-carrito">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+
+</main>
+
+<footer>
+
+  <p class="titulo-animado">
+  Envíos a todo el país <span class="emoji">🇦🇷</span> 
+  </p>
+
+  <a href="#" class="back-to-top">⬆ Volver</a>
+  <a href="contacto.html">Contacto</a>
+  <p>© 2025 Efecto AZ.</p>
+
+</footer>
+
+  <!-- Botón flotante -->
+<div id="whatsapp-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
+  <span>Consultar</span>
+</div>
+
+
+<script src="js/script.js"></script>
+
+<!-- Cartel flotante general -->
+<div id="toast" class="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<div id="modal-cp" class="modal-cp" style="display:none;">
+  <div class="modal-cp-content">
+    <h3>📍 Ingresá tu código postal:</h3>
+    <input type="text" id="cp-input" placeholder="Ej: 7600" />
+    <div class="modal-cp-buttons">
+      <button id="cp-cancelar">Cancelar</button>
+      <button id="cp-confirmar">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

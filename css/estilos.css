@@ -1,0 +1,1551 @@
+
+:root {
+  --primary: #6a1b9a;
+  --accent: #00b894;
+  /* color de fondo general de la página */
+ --bg: #1c2a33;
+  /* color de texto por defecto */
+  --text: #0b0c00;
+  /* altura estimada del header (se usa para empujar contenido) */
+  --header-h: 80px;
+  /* ancho máximo de contenido central */
+  --content-max-w: 1200px;
+  /* tamaño base de fuente (puedes ajustar si quieres escalar todo) */
+  --base-font: 13px;
+  --border-radius: 10px;
+}
+/* box-sizing global para evitar problemas de cálculo de ancho */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;                            /* quita margen por defecto del navegador */
+  padding: 0;                           /* quita padding por defecto */
+  min-width: 100vw;                     /* evita que se reduzca el ancho de la página */
+  overflow-x: hidden;                   /* evita scroll horizontal inesperado */
+  font-family: 'Quicksand', sans-serif;
+  background: var(--bg);                /* color de fondo global */
+  color: var(--text);                   /* color de texto global */
+  font-size: var(--base-font);          /* tamaño base de fuente */
+}
+header {
+  background: linear-gradient(135deg, #6a1b9a, #ab47bc); /* degradado de fondo del header */
+  padding: 0.00005rem;                                       /* espacio interno del header */
+  text-align: center;                                  /* centra el contenido textual */
+  position: fixed;                                     /* fija el header en la parte superior */
+  top: 0;                                              /* posicion arriba: 0 */
+  left: 0;                                             /* pegado a la izquierda */
+  right: 0;                                            /* pegado a la derecha */
+  z-index: 1000;                                       /* z-index alto para estar encima del contenido */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);               /* sombra sutil debajo */
+  width: 100%;                                         /* que ocupe todo el ancho */
+  max-width: 100vw;                                    /* evitar overflow por ancho */
+  box-sizing: border-box;                              /* asegurar box-sizing dentro del header */
+  display: flex;                                       /* layout flex para alinear elementos */
+  justify-content: space-between;                      /* espacio entre logo y nav */
+  align-items: center;                                 /* centra verticalmente los elementos */
+  flex-wrap: wrap;                                     /* permite que el contenido salte a la siguiente línea */
+  gap: 0.5rem;                                           /* separación entre elementos flex */
+  min-height: var(--header-h);                         /* altura mínima definida por la variable */
+}
+/* contenedor del logo dentro del header */
+.logo-contenedor img {
+  max-width: 110px;                                    /* ancho máximo del logo */
+  height: auto;                                        /* altura automática para mantener proporción */
+  border-radius: 12px;                                 /* bordes redondeados en la imagen */
+  filter: drop-shadow(0 2px 8px rgba(106,27,154,0.3)); /* sombra externa para destacar */
+}
+/* contenedor del título (centro del header) */
+.titulo-contenedor {
+  flex: 1;                                             /* ocupa espacio restante */
+  text-align: center;                                  /* centra su contenido */
+  overflow: hidden;                                    /* oculta contenido que se desborda */
+  box-sizing: border-box;                              /* asegurar box-sizing */
+  max-width: 100vw;                                    /* no exceder el ancho de la ventana */
+  padding: 0 1rem;                                     /* separación interna horizontal */
+  font-size: 1rem;                                     /* tamaño base para contenedor */
+}
+/* estilo del h1 dentro del título */
+.titulo-contenedor h1 {
+  font-size: 1.5rem;                                  /* tamaño del título (ajustado para no ser gigante) */
+  margin: 0 0 0.5rem 0;                                /* margen inferior pequeño */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);            /* ligera sombra de texto para legibilidad */
+  white-space: nowrap;                                 /* evita salto de línea en el título */
+  overflow: hidden;                                    /* oculta el texto que se desborda */
+  text-overflow: ellipsis;                             /* muestra "..." si corta el texto */
+  line-height: 1.2;                                    /* altura de línea */
+  font-weight: bold;                                   /* texto en negrita */
+  padding: 0 1rem;                                     /* padding horizontal */
+  font-family: 'Quicksand', sans-serif;
+}
+nav {
+  display: flex;                                       /* layout flex para los enlaces */
+  justify-content: center;                             /* centra la navegación */
+  align-items: center;                                 /* alinea verticalmente */
+  gap: 0.5rem;                                         /* separación entre enlaces */
+  flex-wrap: wrap;                                     /* permite que los enlaces salten línea si hace falta */
+  font-family: 'Bebas Neue', sans-serif;
+}
+/* estilo de cada enlace del nav */
+nav a {
+  display: inline-block;                               /* inline-block para padding y margin */
+  color: #070000;                                      /* color de texto de los enlaces */
+  text-decoration: underline;                               /* sin subrayado */
+  font-weight: bold;                                   /* negrita */
+  font-size: 4rem;                                  /* tamaño razonable para el nav */
+  transition: color 0.3s;                              /* transición suave al hover */
+  margin: 0.25rem;                                     /* pequeño margen alrededor */
+  font-family: 'Bebas Neue', sans-serif;
+  padding-right: 120px; /* deja espacio para el botón */
+  text-align: center;
+}
+/* color al pasar el mouse por encima */
+nav a:hover {
+  color: var(--accent);
+}
+.hero {
+  text-align: center;                                  /* centra el texto del hero */
+  padding-top: 11rem;                             /* espacio extra arriba (visual) */
+  max-width: 100vw;                                    /* no exceder ancho de ventana */
+  background-size: cover;                              /* si tiene imagen, que cubra */
+  background-position: center;                         /* centra la imagen de fondo */
+  color: #000;                                         /* color de texto del hero */
+  position: relative;                                  /* contenedor relativo para overlays */
+  z-index: 1;                                          /* sobre algunos elementos pero debajo del header */
+}
+.hero-title {
+  position: absolute;
+  bottom: 20px; /* o center si querés centrar */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+  letter-spacing: 1px;
+}
+/* overlay decorativo dentro del hero */
+.hero-overlay {
+  position: absolute;                                  /* posición absoluta dentro del hero */
+  width: 100%;                                         /* ocupa ancho completo */
+  height: 80%;                                         /* altura del overlay */
+  margin-top: 3rem;                                    /* separación superior visual */
+  top: 0;                                              /* arriba del hero */
+  left: 0;                                             /* a la izquierda */
+  opacity: 1;                                          /* opacidad completa (puedes bajar para más transparencia) */
+  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6)); /* degradado semitransparente */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              /* sombra suave */
+  backdrop-filter: blur(2px);                          /* desenfoque del fondo (si el navegador lo soporta) */
+  z-index: 1;   
+}
+/* títulos dentro del hero */
+.hero h2, .hero p {
+  position: relative;                                  /* posicionamiento relativo (frente al overlay) */
+  z-index: 1;                                          /* encima del overlay */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);            /* sombra para legibilidad */
+  font-size: 5rem;                                  /* tamaño del texto en hero (ajustado) */
+  margin: 0;                                    /* margen vertical */
+  padding:0rem;                                     /* padding horizontal */
+  margin-top: 0px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+/* botones del hero */
+.hero-buttons {
+  display: flex;                                       /* flex para alinear botones */
+  justify-content: center;                             /* centrado horizontal */
+  gap: 1rem;                                           /* espacio entre botones */
+  margin-top: 1rem;                                    /* separación superior */
+  position: relative;                                  /* relativo (para posibles overlays) */
+  z-index: 2;                                          /* encima del overlay */
+  font-size: 1rem;                                     /* tamaño base de botones */
+}
+/* estilo general de botones del hero */
+.hero-buttons .btn {
+  padding: 0.6rem 1rem;                                /* padding interno */
+  background: linear-gradient(45deg, var(--primary), var(--accent)); /* degradado */
+  color: #fff;                                         /* texto blanco */
+  border: none;                                        /* sin borde */
+  border-radius: var(--border-radius);                 /* radio de los bordes */
+  cursor: pointer;                                     /* cursor mano */
+  font-size: 1rem;                                     /* tamaño de texto interno */
+  transition: background 0.3s, transform 0.3s;         /* transiciones */
+}
+/* hover para los botones */
+.hero-buttons .btn:hover {
+  background: linear-gradient(45deg, var(--accent), var(--primary)); /* invertir degradado */
+  transform: scale(1.03);                              /* pequeño zoom */
+}
+.destacados {
+  text-align: center;                                  /* centra el texto */
+  padding: 0.8rem 1rem;                                /* padding interno cómodo */
+  background: #0a0909;                                    /* fondo blanco */
+  border-radius: 0px;                 /* bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra suave */
+  font-size: 1rem;                                     /* tamaño de fuente */
+  max-width: var(--content-max-w);                     /* ancho máximo del bloque */
+  margin: 1rem auto;                                   /* centrado y margen vertical */
+  width: 100%;                                         /* ocupa 100% del contenedor */
+  box-sizing: border-box;                              /* box-sizing */
+}
+/* título dentro de destacados */
+.destacados h2 {
+  color: var(--primary);                               /* color principal */
+  margin-bottom: 0.75rem;                              /* separación inferior */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);           /* sombra ligera */
+  font-size: 2rem;                                     /* tamaño del título destacado */
+  text-align: center;                                  /* centrado */
+}
+.portfolio {
+  display: grid;                                       /* grid layout para tarjetas */
+  grid-template-columns: repeat(4, 1fr);               /* 4 columnas en desktop */
+  gap: 1rem;                                           /* espacio entre tarjetas */
+  max-width: var(--content-max-w);                     /* ancho máximo */
+  margin: 0 auto;                                      /* centro horizontal */
+  padding: 0.5rem 0.2rem;                              /* padding interno */
+  width: 100%;                                         /* ocupa todo el ancho disponible */
+  box-sizing: border-box;                              /* box-sizing */
+  border-radius: 0px;
+}
+.catalogo {
+  display: grid;                                       /* grid también para catalogo */
+  grid-template-columns: inherit;                      /* hereda columnas (por simplicidad) */
+  gap: 1rem;                                           /* gap igual */
+  width: 100%;                                         /* ancho completo */
+  box-sizing: border-box;                              /* box-sizing */
+  
+}
+.card {
+  background: #fff;                                    /* fondo blanco para la tarjeta */
+  border: 2px solid var(--accent);                     /* borde con color de acento */
+  border-radius: var(--border-radius);                 /* bordes redondeados */
+  padding: 1rem;                                       /* padding interno */
+  text-align: center;                                  /* centra el texto */
+  transition: transform 0.3s, box-shadow 0.3s;         /* transiciones suaves */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
+  font-size: 0.95rem;                                  /* tamaño de fuente para el contenido */
+  cursor: pointer;                                     /* cursor en hover */
+  display: flex;                                       /* flex para layout interno */
+  flex-direction: column;                              /* columna vertical */
+  align-items: stretch;                                /* estira elementos interiores */
+  justify-content: flex-start;                         /* alineación inicial */
+  height: 100%;                                        /* que la tarjeta ocupe el alto del grid cell */
+  box-sizing: border-box;                              /* box-sizing */
+  min-height: 260px;                                   /* altura mínima para consistencia visual */
+  position: relative;                                  /* necesario para colocar el overlay */
+  border-radius: 10px;
+}
+.card .mas-fotos {
+  position: absolute;
+  top: 8px;          /* arriba de la imagen */
+  right: 8px;        /* a la derecha */
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  pointer-events: none; /* para que no interfiera con el click en la card */
+  font-weight: bold;
+  z-index: 2;
+}
+/* efecto hover en la tarjeta */
+.card:hover {
+  transform: translateY(-6px);                         /* sube ligeramente */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);            /* sombra más pronunciada */
+}
+/* imagen principal de la tarjeta */
+.card img {
+  width: 100%;                                         /* ocupa todo el ancho de la tarjeta */
+  border-radius: 8px;                                  /* bordes redondeados de la imagen */
+  margin-bottom: 0.5rem;                               /* separación hacia el contenido */
+  height: 220px;                                       /* altura fija para consistencia */
+  object-fit: cover;                                   /* cubre sin deformar (recorta si hace falta) */
+  transition: transform 0.3s;                          /* transición para posibles efectos */
+  border-radius: 10px;
+}
+/* título de producto dentro de la card */
+.card h3 {
+  color: var(--primary);                               /* color del título */
+  margin: 0.25rem 0;                                   /* margen vertical pequeño */
+  font-size: 1.25rem;                                  /* tamaño razonable para h3 */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);            /* sombra muy suave */
+  display: flex;                                       /* flex para centrar verticalmente si hay iconos */
+  align-items: center;                                 /* alineación vertical */
+  justify-content: center;                             /* centrado horizontal */
+  text-align: center;                                  /* centrado */
+  padding: 0 0.5rem;                                   /* relleno horizontal */
+  flex-grow: 0;                                        /* no expandir */
+  font-weight: bold;
+}
+/* descripción breve dentro de la tarjeta */
+.card p {
+  margin: 0.25rem 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: #555;
+  font-weight: 600;
+  line-height: 1.2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+/* botón compacto dentro de la card */
+.card button {
+  padding: 0.45rem 0.8rem;                             /* padding interior */
+  background: linear-gradient(45deg, var(--primary), var(--accent)); /* degradado */
+  color: #fff;                                         /* texto blanco */
+  border: none;                                        /* sin borde */
+  border-radius: var(--border-radius);                 /* radio del botón */
+  cursor: pointer;                                     /* cursor en hover */
+  transition: background 0.3s, transform 0.2s;         /* transiciones */
+  font-size: 0.9rem;                                   /* tamaño de texto del botón */
+  margin-top: auto;                                    /* empuja el botón hacia el final de la tarjeta */
+  width: 100%;                                         /* ocupa todo el ancho disponible */
+  box-sizing: border-box;                              /* box-sizing */
+  text-transform: uppercase;                           /* texto en mayúsculas */
+  font-weight: bold;                                   /* negrita */
+  letter-spacing: 0.04rem;                             /* ligero tracking */
+}
+/* hover del botón */
+.card button:hover {
+  background: linear-gradient(45deg, var(--accent), var(--primary));  /* invertir degradado */
+  transform: translateY(-2px);                         /* pequeño movimiento hacia arriba */
+}
+.card .btn-carrito {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px; /* separa los botones */
+  }
+.card .btn-carrito:only-of-type {
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1300;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+  border-radius: 10px;  
+}
+/* Contenido interior */
+.modal-content {
+  max-width: 600px;       /* fijo máximo ancho */
+  width: 90%;
+  max-height: 90%;
+  background: #9d00ff;
+  color: #000000;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  animation: fadeIn 0.25s ease;
+  border: 3px solid;
+  border-image: linear-gradient(45deg, var(--primary), var(--accent)) 1;
+  font-style: italic;
+}
+/* Imagen del modal */
+.modal-content img {
+  max-width: 100%;
+  max-height: 60vh;   /* ajusta la altura según pantalla */
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1;
+}
+/* Zoom */
+.modal-content img.zoomed {
+  transform: scale(1.8);
+  cursor: zoom-out;
+  z-index: 10;
+}
+/* Cruz para cerrar */
+.close {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 200;
+  user-select: none;
+  color: black
+}
+.close:hover { color: #08ffea; }
+/* Flechas */
+.modal-content .prev,
+.modal-content .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(44, 41, 41, 0.8);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 101;
+  transition: background 0.2s;
+}
+.modal-content .prev { left: 12px; }
+.modal-content .next { right: 12px; }
+.modal-content .prev:hover,
+.modal-content .next:hover { background: rgba(0,0,0,0.95); }
+.modal-precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #080400;
+  margin-top: 10px;
+}
+.modal-botones {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  border-radius:10px;
+}
+.modal-botones button {
+  padding: 10px 15px;
+  border: black;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+  flex: 1 1 auto;       /* que puedan crecer o reducirse */
+  min-width: 80px;      /* evita que queden demasiado pequeños */
+}
+#modal-agregar {
+  background: linear-gradient(59deg, var(--accent), var(--primary));  /* invertir degradado */
+  color: rgb(0, 0, 0);
+  margin-top:-20px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #080808;
+
+}
+#modal-agregar {
+  transition: opacity 0.3s ease;
+}
+.modal-botones button:hover {
+  opacity: 0.85;
+}
+/* Carrito: cantidad + y - */
+.cantidad-container {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.cantidad-btn {
+  padding: 0.2rem 0.5rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.1s;
+  
+}
+.cantidad-btn:hover { background: #8e24aa; transform: scale(1.1); }
+.cantidad { min-width: 20px; display: inline-block; text-align: center; }
+.buscador {
+  text-align: center;                                  /* centra el buscador */
+  margin: 1rem 0;                                      /* margen arriba y abajo */
+  width: 100%;                                         /* ocupa el ancho disponible */
+  box-sizing: border-box;                              /* box-sizing */
+  max-width: 100vw;                                    /* no exceder ancho de pantalla */
+  padding: 0 1rem;                                     /* padding horizontal */
+  font-size: 1rem;                                     /* tamaño base */
+  display: flex;                                       /* flex para poder alinear iconos si se añaden */
+  justify-content: center;                             /* centrar horizontalmente */
+  align-items: center;                                 /* centrar verticalmente */
+  flex-direction: column;                              /* columna (input encima de botones) */
+  gap: 0.75rem;                                        /* separación entre elementos */
+  font-family: 'Quicksand', sans-serif;
+}
+/* input de búsqueda */
+#search {
+  width: 90%;                                          /* ancho relativo */
+  max-width: 900px;                                    /* ancho máximo razonable */
+  padding: 0.6rem 0.9rem;                              /* padding interno */
+  border: 2px solid var(--accent);                     /* borde con color acento */
+  border-radius: var(--border-radius);                 /* bordes redondeados */
+  font-size: 1.8rem;                                     /* tamaño del texto del input */
+  outline: none;                                       /* quita outline por defecto (mejorar focus abajo) */
+  transition: border 0.2s, box-shadow 0.2s;            /* transición suave */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
+  box-sizing: border-box;                              /* box-sizing */
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+}
+/* estado focus del input para accesibilidad */
+#search:focus {
+  border-color: var(--primary);                        /* cambia color de borde al enfocar */
+  box-shadow: 0 0 8px rgba(106,27,154,0.25);          /* halo de foco */
+}
+/* estilo del contenedor de "no results" (link dentro formateado) */
+#no-results {
+  color: #444;                                         /* color del texto */
+  font-size: 0.95rem;                                  /* tamaño legible */
+  text-align: center;                                  /* centrado */
+  margin-top: 0.75rem;                                 /* separación superior */
+  font-weight: bold;
+
+}
+/* estilo de enlace dentro de #no-results */
+#no-results a {
+  display: inline-block;                               /* inline-block para padding */
+  margin-top: 0.5rem;                                  /* separación */
+  padding: 0.5rem 0.8rem;                              /* padding para botón */
+  background: var(--accent);                           /* fondo acento */
+  color: #fff;                                         /* texto blanco */
+  border-radius: var(--border-radius);                 /* borde redondeado */
+  text-decoration: none;                               /* sin subrayado */
+  font-weight: bold;                                   /* negrita */
+  transition: background 0.2s, transform 0.15s;        /* transiciones */
+}
+/* hover del link de no-results */
+#no-results a:hover {
+  background: var(--primary);                          /* cambia a color primario */
+  transform: scale(1.03);                              /* ligero zoom */
+}
+main {
+  max-width: var(--content-max-w);                     /* ancho máximo del contenido */
+  margin: 0 auto;                                      /* centrar horizontalmente */
+  width: 100%;                                         /* ocupar ancho */
+  min-height: 60vh;                                    /* altura mínima para buena presencia */
+  font-size: 1rem;                                     /* tamaño base de fuente */
+  background: #030303;                                 /* fondo blanco para la zona principal */
+  border-radius: var(--border-radius);                 /* bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
+  overflow: visible;                                   /* overflow visible por defecto */
+  padding-bottom: 0.1rem;                                /* espacio inferior */
+  padding-top: 0.1rem;                                 /* espacio superior mínimo (el push principal lo hace .main arriba) */
+  border-radius: 0px 0px;
+}
+footer {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+}
+footer p {
+  margin: 0;
+  line-height: 1.4;
+}
+/* estilos para botones sociales agrupados */
+.social-buttons {
+  display: flex;                                       /* flex horizontal */
+  align-items: center;                                 /* alinea verticalmente */
+  justify-content: center;                             /* centrado */
+  gap: 0.5rem;                                         /* separación entre botones */
+  flex-wrap: wrap;                                     /* permite saltos en pantallas pequeñas */
+  text-align: center;                                  /* centra el contenido textual */
+  margin-top: 0.1rem;                                  /* margen superior leve */
+  padding: 0.6rem 1.2rem;                              /* padding (si usas un contenedor tipo tag) */
+  color: var(--primary);                               /* color del texto (si aplica) */
+  font-weight: bold;                                   /* negrita */
+  border-radius: var(--border-radius);                 /* radio */
+  transition: background 0.3s, transform 0.3s, color 0.3s; /* transiciones */
+  font-size: 1rem;                                     /* tamaño de texto */
+  background: transparent;                             /* fondo por defecto transparente */
+}
+/* wrapper para botones sociales con separación superior */
+.social-buttons-wrapper {
+  margin-top: 0.01rem;                                 /* pequeño empuje superior */
+  padding-top: 1rem;                                   /* padding superior */
+  border-top: 1px solid #ccc;                          /* línea divisoria */
+  display: inline-block;                               /* inline block para centrado */
+  text-align: center;                                  /* centrado */
+  width: 100%;                                         /* ocupar ancho disponible */
+  box-sizing: border-box;                              /* box-sizing */
+  font-size: 1rem;                                     /* tamaño de fuente */
+}
+/* botón social base */
+.social-btn {
+  display: inline-block;                               /* inline-block */
+  padding: 0.6rem 1.2rem;                              /* padding */
+  border-radius: var(--border-radius);                 /* borde redondeado */
+  color: #fff;                                         /* texto blanco */
+  font-weight: bold;                                   /* negrita */
+  text-decoration: none;                               /* sin subrayado */
+  transition: transform 0.3s, background 0.3s;         /* transiciones */
+  font-size: 1rem;                                     /* tamaño de texto */
+  text-align: center;                                  /* centrado */
+  box-sizing: border-box;                              /* box-sizing */
+  width: 120px;                                        /* ancho fijo para consistencia */
+  height: 40px;                                        /* alto fijo */
+  line-height: 40px;                                   /* centrado vertical del texto */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              /* sombra */
+  display: flex;                                       /* flex para icon + texto */
+  align-items: center;                                 /* alinear verticalmente */
+  justify-content: center;                             /* centrar horizontalmente */
+  gap: 0.5rem;                                         /* espacio entre icono y texto */
+}
+/* hover de botones sociales */
+.social-btn:hover {
+  transform: scale(1.1);                               /* zoom suave */
+  color: #fff;                                         /* asegurar texto blanco */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);             /* sombra mayor al hover */
+}
+
+.social-btn.instagram { background: #E4405F; }
+.social-btn.instagram:hover { background: #C13584; }
+.social-btn.facebook { background: #1877F2; }
+.social-btn.facebook:hover { background: #0F62CE; }
+.social-btn.whatsapp { background: #25D366; color: #fff; padding: 0.6rem 1rem; }
+.social-btn.whatsapp:hover { background: #1DA851; }
+.social-btn.email { background: #6a1b9a; }
+.social-btn.email:hover { background: #9c4dcc; }
+.social-btn.location { background: #00b894; }
+.social-btn.location:hover { background: #00a07f; }
+
+.back-to-top {
+  margin-top: 0.2rem;                                 /* margen pequeño */
+  padding: 0.7rem 1.2rem;                              /* padding */
+  background: rgba(3, 2, 3, 0.667);                                   /* fondo claro */
+  color: white;                               /* color del texto */
+  font-weight: bold;                                   /* negrita */
+  border-radius: var(--border-radius);                 /* radio */
+  text-decoration: none;                               /* sin subrayado */
+  transition: background 0.3s, transform 0.3s, color 0.3s; /* transiciones */
+  font-size: 1rem;                                     /* tamaño */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              /* sombra */
+  box-sizing: border-box;                              /* box-sizing */
+  float: left;
+  border-radius: 50px;
+  position: fixed;      /* se queda visible al hacer scroll */
+  bottom: 30px;         /* separación desde el borde inferior */
+  left: 30px;           /* separación desde el borde izquierdo */
+  
+}
+/* hover del botón volver arriba */
+.back-to-top:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
+
+/* Smooth scroll para anclas */
+html { scroll-behavior: smooth; }
+
+/* ==============================
+   Animaciones
+   ============================== */
+
+/* Animación al agregar al carrito */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes vibrar {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+/* Clase que dispara la animación */
+.animar-agregar {
+  animation: pulse 0.4s ease;
+}
+
+/* Clase que se aplica al botón */
+.btn-agregado {
+  animation: pulse 0.3s ease;
+}
+
+@keyframes fiestaPop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-infinite { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+@keyframes color-change { 0%,100% { color: var(--primary); } 50% { color: #000000; } }
+@keyframes carrito-anim {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+.animar-carrito {
+  animation: carrito-anim 0.3s ease;
+}
+/* clase para título animado */
+.titulo-animado {
+  display: inline-block;
+  white-space: nowrap;
+  animation: slide-infinite 18s linear infinite, color-change 15s ease-in-out infinite;
+  font-size: 1.3rem;                                    /* tamaño controlado */
+  font-weight: bold;                                   /* negrita */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);            /* sombra para legibilidad */
+  padding: 0 1rem;                                     /* padding lateral */
+  position: relative;                                  /* relativo para z-index */
+  z-index: 2;                                          /* por encima del fondo */
+}
+.contenedor-secciones {
+  display: flex;                                       /* flex para secciones laterales */
+  gap: 2rem;                                           /* separación entre secciones */
+  max-width: var(--content-max-w);                     /* ancho máximo */
+  margin: 0 auto;                                      /* centrar horizontal */
+  padding: 0 0.2rem;                                   /* padding horizontal */
+  width: 100%;                                         /* ancho completo */
+  box-sizing: border-box;                              /* box-sizing */
+}
+/* tarjeta de sección */
+.seccion {
+  background: #a7a6a6;                                    /* fondo blanco */
+  border: 1px solid var(--accent);                     /* borde con acento */
+  border-radius: var(--border-radius);                 /* radio */
+  padding: 0.3rem;                                     /* padding */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
+  font-size: 1rem;                                     /* tamaño del contenido */
+  box-sizing: border-box;                              /* box-sizing */
+  margin-top: 9%;
+}
+/* titulo de sección */
+.seccion h2 {
+  color: var(--primary);                               /* color primario */
+  margin-bottom: 0.1rem;                               /* separación inferior */
+  margin-top: 0.1rem;                                /* separación superior */  
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);           /* sombra ligera */
+  font-size: 1.5rem;                                   /* tamaño para h2 */
+  text-align: center;                                  /* centrado */
+}
+/* Tablets medianas y grandes */
+@media (max-width: 1024px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 0.75rem;
+  }
+
+  .card img {
+    height: 200px; /* ajustar altura de imagen */
+  }
+
+  .card h3 {
+    font-size: 1.1rem; /* título más pequeño */
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    line-clamp: 3; /* mantener 3 líneas máximo */
+  }
+
+     .card .btn-carrito {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px; /* separa los botones */
+  }
+
+  nav a {
+    font-size: 4rem; /* enlaces más pequeños */
+    font-family: 'Playfair Display', serif;
+    padding-right: 120px; /* deja espacio para el botón */
+  }
+  .hero{
+    margin-top: 1rem;
+  }
+}
+/* Tablets pequeñas / pantallas horizontales */
+@media (max-width: 768px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 0.5rem;
+  }
+
+  .card img {
+    height: 180px; /* reducir altura de imagen */
+  }
+
+  .card h3 {
+    font-size: 1rem; 
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    line-clamp: 3;
+  }
+
+  .card .btn-carrito {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px; /* separa los botones */
+  }
+
+  .titulo-contenedor h1 {
+    font-size: 1rem; /* título del header más pequeño */
+  }
+
+  nav a {
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    padding-right: 120px; /* deja espacio para el botón */
+  }
+
+  #search {
+    width: 95%; /* input más ancho para pantallas pequeñas */
+  }
+}
+/* Móviles / pantallas pequeñas */
+@media (max-width: 480px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 0.5rem;
+  }
+  
+  .modal-precio,
+  .modal-title,
+  .h2,
+  .img {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5%;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  .modal-botones{
+    margin-bottom: 0.2%;
+    margin-top: 5.2%;
+  }
+  
+  .card img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  .card p {
+    font-size: 1.1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0.1rem;
+    text-align: center;
+  }
+
+  .card .btn-carrito {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px; /* separa los botones */
+  }
+
+  .titulo-contenedor h1 {
+    font-size: 1.4rem; /* título header más pequeño */
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  nav a {
+    font-size: 3.2rem;
+    padding: 0.1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-variant-caps: all-petite-caps;
+    font-weight: bold;            /* 🔹 Negrita */
+    text-decoration: underline;
+    padding-top: 0rem;
+    padding-right: 210px; /* deja espacio para el botón */
+  }
+
+  .hero {
+    padding-top: 7rem; /* menos espacio arriba en móvil */
+  }
+
+  .hero h2,
+  .hero p {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    text-align: left;
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  #search {
+    width: 95%; /* input ocupa casi todo el ancho */
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .contenedor-secciones {
+    flex-direction: column; /* secciones apiladas */
+    gap: 1rem;
+  }
+
+  .seccion {
+    margin-top: 2rem; /* ajustar margen */
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+}
+@media (max-with: 331px) {
+  nav a {
+    font-size: 1srem;
+    padding: 0.1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-variant-caps: all-petite-caps;
+    font-weight: bold;            /* 🔹 Negrita */
+    text-decoration: underline;
+    padding-top: 0rem;
+    padding-right: 210px; /* deja espacio para el botón */
+  }
+
+}
+/* Footer (total + botones) */
+#carrito-footer {
+  flex-shrink: 0;  /* nunca se achica */
+  display: flex;
+  flex-direction: column;
+  gap: px;
+  margin-top: 10px;
+}
+#carrito-contenedor {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+#carrito-btn {
+  background: #6a1b9a;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 12px 14px;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, background 0.3s;
+}
+#carrito-btn:hover {
+  transform: scale(1.1);
+  background: #8e24aa;
+}
+#carrito-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff1744;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 3px 6px;
+}
+#carrito-dropdown {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid #09000a;
+  width: 320px;
+  height: 480px;
+  max-width: 90%;
+  max-height: 90vh; /* Máximo alto del modal */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+#carrito-dropdown h4 {
+  font-size: 1.8rem;
+  color: #7b1fa2;
+  margin: 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  /*
+  background: linear-gradient(135deg, #f3e5f5, #ede7f6);
+  border: 2px solid #ba68c8;*/
+}
+#carrito-dropdown h3 {
+  font-size: 1.4rem;
+  margin-bottom: 13px;
+  margin-top: 0px;
+  padding: 0px;
+  text-align: center;
+  font-weight: bold;
+}
+#cerrar-carrito {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000000;
+  transition: color 0.2s;
+}
+#cerrar-carrito:hover {
+  color: #c62828;
+
+}
+#carrito-items {
+  max-height: 210px;
+  overflow-y: auto;
+  margin-bottom: 0px;
+  position: relative;
+  z-index: 1001; /* por encima de todo lo que pueda taparlo */
+  pointer-events: auto; /* permite usar el scroll normalmente */
+  font-size: 1.5rem;
+  padding-right: 10px;
+  text-align: left;
+  margin-left: 0px;
+  padding-left: 0%;
+}
+/* Scroll personalizado para el carrito */
+#carrito-items::-webkit-scrollbar {
+  width: 20px; /* más ancho */
+}
+#carrito-items::-webkit-scrollbar-track {
+  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
+  border-radius: 6px;
+}
+#carrito-items::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 6px;
+}
+#carrito-items::-webkit-scrollbar-thumb:hover {
+  background: #7b1fa2;  
+}
+.carrito-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  border-bottom: 3px solid #680263;
+  flex-wrap: nowrap;   /* evitas que se vaya a otra línea */
+  overflow: visible;   /* para que la línea no se corte */
+  background: #ffffff;
+  padding: 1.5px;
+  border-radius: 7px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: left;
+  
+}
+
+.carrito-item strong {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 1px;
+  font-weight: 700;
+  color: #2d3436;
+}
+.carrito-precio-cantidad {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.carrito-item-info {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  gap: 10px;
+}
+.carrito-sidebar {
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  background-color: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 280px;
+  z-index: 5000; 
+}
+.carrito-items {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  z-index: 6000; 
+  position: relative;
+  text-align: left;
+}
+.carrito-sidebar * {
+  pointer-events: auto;
+}
+.carrito-items {
+  width: 100%;
+}
+.carrito-item {
+  display: flex;
+  flex-wrap: wrap; /* evita que los elementos se salgan */
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+  padding-right: 1px;
+  padding-left: 10px;
+}
+.carrito-cantidad-controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+/* botones carrito  de cantidad*/
+.cantidad-btn {
+  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));;
+  border: none;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+}
+.cantidad-btn:hover {
+  background: #7b1fa2;
+}
+.btn-vaciar {
+  background: #ccc;
+  border: none;
+  color: #070000;
+  padding: 6px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  width: 100%;
+  font-weight: bold;
+}
+.btn-vaciar:hover {
+  background: #bbb;
+}
+.btn-enviar {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  width: 100%;
+  font-weight: bold;
+}
+.btn-enviar:hover {
+  background: #1ebe5b;
+}
+#carrito-total {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  color: #000000;
+  font-size: 1.3rem;
+  text-align: left;
+}
+/* Ajustes del modal en pantallas pequeñas */
+  .modal {
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 12px;
+    overflow-y: auto;
+
+  }
+  .modal img {
+    width: 100%;
+    height: auto;
+  }
+  .modal h2,
+  .modal p {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
+  }
+  .modal button,
+  .modal-botones {
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: var(--primary);
+  color: rgb(19, 1, 1);
+  padding: 12px 18px;
+  border-radius: var(--border-radius);
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  max-width: 260px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  display: none;
+}
+.toast.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  background: linear-gradient(135deg, #6a1b9a, #47b8bc); /* degradado de fondo del header */
+}
+.toast.success {
+  background: linear-gradient(135deg,rgba, rgba(0,184,148,0.6));
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+.toast.warning {
+  background: linear-gradient(135deg,rgba, rgba(0,184,148,0.6));
+}
+.toast.fiesta {
+  background: linear-gradient(135deg,rgba, rgba(0,184,148,0.6));
+  color: #2d3436;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  border: 2px solid #00b894;
+  animation: fiestaPop 0.6s ease-out;
+  padding: 4px 20px;
+}
+
+.aviso {
+  display:none; 
+  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));; 
+  color:rgb(20, 3, 3); 
+  padding:3px; 
+  margin:2px 0; 
+  border-radius:8px; 
+  font-weight:bold; 
+  text-align:center;
+  font-size: 25px;
+  padding-bottom: 0%;
+}
+/* Botón flotante */
+#whatsapp-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
+  padding: 14px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 40px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  margin-top: 1%;
+}
+#whatsapp-btn img {
+  width: 20px;
+  height: 20px;
+}
+/* Menú */
+#whatsapp-menu {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
+  padding: 15px;
+  border-radius: 12px;
+  width: 230px;
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+#whatsapp-menu h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  text-align: center;
+}
+#whatsapp-menu button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  cursor: pointer;
+  transition: background 0.25s;
+  font-size: 14px;
+}
+#whatsapp-menu button:hover {
+  background: rgba(255,255,255,0.25);
+}
+/* Oculto */
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .instrucciones-texto {
+    margin: 35px 25px;
+    padding: 24px 28px;
+    margin-top: 100px;
+  }
+
+  .instrucciones-texto h2 {
+    font-size: 23px;
+  }
+
+  .instrucciones-texto p,
+  .instrucciones-texto li {
+    font-size: 15px;
+  }
+}
+@media (max-width: 1024px) {
+  .instrucciones-texto {
+    margin: 30px 20px;
+    padding: 22px 25px;
+    margin-top: 100px;
+  }
+
+  .instrucciones-texto h2 {
+    font-size: 22px;
+  }
+
+  .instrucciones-texto p,
+  .instrucciones-texto li {
+    font-size: 15px;
+  }
+}
+@media (max-width: 900px) {
+  .instrucciones-texto {
+    margin: 28px 18px;
+    padding: 21px 22px;
+    margin-top: 100px;
+  }
+
+  .instrucciones-texto h2 {
+    font-size: 21px;
+  }
+
+  .instrucciones-texto p,
+  .instrucciones-texto li {
+    font-size: 15px;
+  }
+} 
+@media screen and (max-width: 820px) {
+  .instrucciones-texto {
+    margin: 27px 16px;
+    padding: 20px 20px;
+    margin-top: 100px;
+  }
+
+  .instrucciones-texto h2 {
+    font-size: 20px;
+  }
+
+  .instrucciones-texto p,
+  .instrucciones-texto li {
+    font-size: 14px;
+  }   
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .instrucciones-texto {
+    margin: 25px 15px;
+    padding: 20px 18px;
+    margin-top: 100px;
+  }
+
+  .instrucciones-texto h2 {
+    font-size: 20px;
+  }
+
+  .instrucciones-texto p,
+  .instrucciones-texto li {
+    font-size: 14px;
+  }
+
+  .instrucciones-texto h2 {
+    margin-bottom: 9px;
+    margin-top: 0px;
+    font-size: 24px;
+    text-align: center;
+    color: #5c0180; /* rojo suave para destacar */
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+}
+#carrito-dropdown,
+#fondo-carrito {
+  display: none;
+}
+/* Pagar */
+.btn-pagar-mp {
+  display: inline-block;
+  padding: 6px 15px;
+  background: #00b894;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.btn-pagar-mp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+  
+.facebook-embed {
+  margin-top: 2.5rem;
+  padding: 2rem 1rem;
+  background: #162028;
+  text-align: center;
+  border-radius: 14px;
+}
+
+.facebook-embed h2 {
+  color: #fff;
+  margin-bottom: .5rem;
+}
+
+.fb-sub,
+.fb-cta {
+  color: #ccc;
+  font-size: .95rem;
+  margin-bottom: 1.2rem;
+}
+
+.fb-video {
+  display: flex;
+  justify-content: center;
+}
+
+.fb-video iframe {
+  width: 300px;
+  max-width: 100%;
+  height: 450px;
+  border-radius: 12px;
+}
+
+.fb-video iframe {
+  max-width: 100%;
+  width: 320px;
+  height: 480px;
+}
+/* CP */
+
+.modal-cp {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-cp-content {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 8px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+}
+.modal-cp-content input {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 15px 0;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.modal-cp-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-cp-buttons button {
+  padding: 8px 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#cp-cancelar {
+  background: #ccc;
+  color: #333;
+}
+#cp-confirmar {
+  background: #007bff;
+  color: white;
+}
+#cp-cancelar:hover {
+  background: #bbb;
+}
+#cp-confirmar:hover {
+  background: #0056b3;
+}
+.animar-agregar {
+  animation: vibrar 0.35s linear;
+}
+
+.card {
+  -webkit-tap-highlight-color: transparent;
+}

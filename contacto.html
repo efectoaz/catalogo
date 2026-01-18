@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efecto AZ</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Oswald:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <div class="titulo-contenedor">
+    <h1 class="titulo-animado">
+    Envíos a todo el país <span class="emoji">📦</span> <span class="emoji">🇦🇷</span>
+    </h1>
+
+    <nav>
+      <a href="index.html">Catálogo</a>
+    </nav>
+  </div>
+   
+  <div id="carrito-contenedor">
+
+    <button id="carrito-btn" aria-label="Abrir carrito">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="carrito-count">0</span>
+    </button>
+
+      <div id="carrito-dropdown">
+     <span id="salir-carrito" style="cursor:pointer; float:left; font-size:20px; font-weight:bold; margin:5px;">❌</span>
+     <h3>🛍️           </h3> 
+     <h3>Tu pedido:</h3>
+     <ul id="carrito-items"></ul>
+     <div id="carrito-footer">
+      <p id="carrito-total">Total: $0</p>
+          <button id="vaciar-carrito" class="btn-vaciar">Vaciar carrito</button>
+          <button id="enviar-carrito" class="btn-enviar">Hacer pedido</button>
+    </div>
+    </div>
+  </div>
+</header>
+
+<main>
+    <div class="instrucciones-texto">
+        <div class="social-buttons">
+    <a href="https://www.instagram.com/efecto_az/" target="_blank" class="social-btn instagram">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+    <a href="https://www.facebook.com/agustina.zudaire.7" target="_blank" class="social-btn facebook">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+
+    <a href="https://wa.me/542291519731?text=Hola%2C%20vengo%20del%20catálogo%20y%20tengo%20un%20pedido/pregunta%20para%20hacerte%20"
+       target="_blank" class="social-btn whatsapp">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+  </div>
+      
+    </div>
+
+  <section class="facebook-embed">
+  <h2>🔥</h2>
+  <p class="fb-sub">
+    
+  </p>
+
+  <div class="fb-video">
+    <iframe
+      src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fagustina.zudaire.7%2Fposts%2Fpfbid02KEdtBxCWo4S4nmsE4xvJroLMBBAcTeR49oV1U2zXDg6QfaDQH48erxAsSU2hwFudl&show_text=true&width=500" width="500" height="250" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      loading="lazy"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+  </div>
+
+  <p class="fb-cta">
+    📦 Envíos a todo el país · 
+  </p>
+
+</section>
+<aside class="facebook-embed-note">
+  <p>
+  *<a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fagustina.zudaire.7%2Fposts%2Fpfbid02KEdtBxCWo4S4nmsE4xvJroLMBBAcTeR49oV1U2zXDg6QfaDQH48erxAsSU2hwFudl&show_text=true&width=500" width="500" height="250" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" target="_blank">Hacé clic acá para verlo en nuestra página de Facebook</a> 
+  </p>
+<!-- Forzar recálculo del embed -->
+<script>
+  window.addEventListener('load', function () {
+    if (window.FB) {
+      FB.XFBML.parse();
+    }
+  });
+</script>
+
+</aside>
+
+</main>
+
+<footer>
+  <p>© 2025 Efecto AZ - Miramar, Buenos Aires</p>
+</footer>
+
+<div id="whatsapp-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
+  <span>Consultar</span>
+</div>
+
+<script src="js/script.js"></script>
+
+<div id="modal-cp" class="modal-cp" style="display:none;">
+  <div class="modal-cp-content">
+    <h3>📍 Ingresá tu código postal:</h3>
+    <input type="text" id="cp-input" placeholder="Ej: 7600" />
+    <div class="modal-cp-buttons">
+      <button id="cp-cancelar">Cancelar</button>
+      <button id="cp-confirmar">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
