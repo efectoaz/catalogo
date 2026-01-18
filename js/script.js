@@ -288,7 +288,7 @@ if (modalImgZoom) {
 // ========================
 document.addEventListener("DOMContentLoaded", () => {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  const numero = "542236010443";
+  const numero = "542291519731";
 
   const carritoBtn = document.getElementById("carrito-btn");
   const carritoDropdown = document.getElementById("carrito-dropdown");
@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
     msg += `\n- Email:`;
 
 
-    const numero = "542236010443";
+    const numero = "542291519731";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
   });
@@ -588,7 +588,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Alguna referencia del domicilio (opcional): `;
 
     // 🔹 Abrir WhatsApp
-    const numero = "542236010443";
+    const numero = "542291519731";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
 
@@ -693,7 +693,7 @@ const btn = document.getElementById("whatsapp-btn");
 if (btn) {
   btn.addEventListener("click", () => {
   //fbq('track', 'Contact');
-  const numero = "542236010443";
+  const numero = "542291519731";
   const mensaje = "Hola! Vengo del catálogo y tengo una consulta...";
   window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
   })
