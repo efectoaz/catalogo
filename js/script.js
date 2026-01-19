@@ -377,7 +377,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-
   function actualizarCarrito() {
     carritoItemsContainer.innerHTML = carrito.length === 0
       ? "<p class='carrito-vacio'>🛍️ Tu carrito está vacío</p>"
@@ -520,8 +519,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     alert(`⚠️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`);
     return;
   }
-
-
 
   // 🔹 Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
@@ -671,31 +668,6 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
     }
   }
 }
-
-
-
-  const envioGratisDesde = 80000;
-
-  if (envioManualGratis || total >= envioGratisDesde) {
-    aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
-    aviso.style.display = "block";
-
-    if (!estadoEnvio.toastMostrado) {
-      mostrarToast("🎉 Tenés envío gratis! ✨","fiesta",1500);
-
-      setTimeout(() => {
-        lanzarConfetti();
-      }, 1500);
-
-      estadoEnvio.toastMostrado = true;
-    }
-  } else {
-    const falta = envioGratisDesde - total;
-    aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
-    aviso.style.display = "block";
-
-    estadoEnvio.toastMostrado = false;
-  }
 
 
 

@@ -29,7 +29,7 @@ html, body {
   font-size: var(--base-font);          /* tamaño base de fuente */
 }
 header {
-  background: linear-gradient(135deg, rgba(255, 136, 0, 0.6), rgba(2, 1, 1, 0.6)); /* degradado de fondo del header */
+  background: rgba(161, 86, 0, 0.6); /* degradado de fondo del header */
   padding: 0.00005rem;                                       /* espacio interno del header */
   text-align: center;                                  /* centra el contenido textual */
   position: fixed;                                     /* fija el header en la parte superior */
@@ -147,7 +147,7 @@ nav a:hover {
   margin: 0;                                    /* margen vertical */
   padding:0rem;                                     /* padding horizontal */
   margin-top: 0px;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 /* botones del hero */
 .hero-buttons {
@@ -564,7 +564,7 @@ footer p {
   flex-wrap: wrap;                                     /* permite saltos en pantallas pequeñas */
   text-align: center;                                  /* centra el contenido textual */
   margin-top: 0.1rem;                                  /* margen superior leve */
-  padding: 0.6rem 1.2rem;                              /* padding (si usas un contenedor tipo tag) */
+  padding: 4rem 1.2rem;                              /* padding (si usas un contenedor tipo tag) */
   color: var(--primary);                               /* color del texto (si aplica) */
   font-weight: bold;                                   /* negrita */
   border-radius: var(--border-radius);                 /* radio */
@@ -899,7 +899,7 @@ html { scroll-behavior: smooth; }
     font-size: 2.5rem;
     margin: 1rem 0;
     text-align: left;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Playfair Display', serif;
     text-align: center;
     margin-top: 1.5rem;
   }
@@ -958,7 +958,7 @@ html { scroll-behavior: smooth; }
   z-index: 1000;
 }
 #carrito-btn {
-  background: linear-gradient(135deg, rgba(209, 141, 16, 0.6), rgba(0, 0, 0, 0.6));
+  background: rgba(161, 86, 0, 0.6);
   color: white;
   border: none;
   font-size: 22px;
@@ -1004,7 +1004,7 @@ html { scroll-behavior: smooth; }
 }
 #carrito-dropdown h4 {
   font-size: 1.8rem;
-  color: #7b1fa2;
+  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
   margin: 0 0 10px;
   display: flex;
   justify-content: center;
@@ -1142,7 +1142,7 @@ html { scroll-behavior: smooth; }
 }
 /* botones carrito  de cantidad*/
 .cantidad-btn {
-  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));;
+  background-attachment: fixed;
   border: none;
   color: #fff;
   padding: 4px 10px;
@@ -1151,7 +1151,7 @@ html { scroll-behavior: smooth; }
   font-size: 17px;
 }
 .cantidad-btn:hover {
-  background: #7b1fa2;
+  background: #000000;
 }
 .btn-vaciar {
   background: #ccc;
@@ -1303,7 +1303,7 @@ html { scroll-behavior: smooth; }
   position: fixed;
   top: 70px;
   right: 20px;
-  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
+  background: #9c6b01;
   padding: 15px;
   border-radius: 12px;
   width: 230px;
@@ -1347,6 +1347,7 @@ html { scroll-behavior: smooth; }
 
   .instrucciones-texto h2 {
     font-size: 23px;
+    font-family: 'Playfair Display', serif;
   }
 
   .instrucciones-texto p,
@@ -1433,24 +1434,6 @@ html { scroll-behavior: smooth; }
 #carrito-dropdown,
 #fondo-carrito {
   display: none;
-}
-/* Pagar */
-.btn-pagar-mp {
-  display: inline-block;
-  padding: 6px 15px;
-  background: #00b894;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 14px;
-  text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease;
-  cursor: pointer;
-  margin-top: 8px;
-}
-.btn-pagar-mp:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
 }
   
 .facebook-embed {
@@ -1545,7 +1528,6 @@ html { scroll-behavior: smooth; }
 .animar-agregar {
   animation: vibrar 0.35s linear;
 }
-
 .card {
   -webkit-tap-highlight-color: transparent;
 }
