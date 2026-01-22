@@ -1244,18 +1244,18 @@ html { scroll-behavior: smooth; }
   display: block;
   opacity: 1;
   transform: translateY(0);
-  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6)); /* degradado de fondo del header */
+  background: #865102;
 }
 .toast.success {
-  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
+  background: #865102;
   font-weight: bold;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 .toast.warning {
-  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
+  background: #865102;
 }
 .toast.fiesta {
-  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
+  background: #865102;
   color: #2d3436;
   font-weight: 800;
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
@@ -1266,7 +1266,7 @@ html { scroll-behavior: smooth; }
 
 .aviso {
   display:none; 
-  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
+  background: #865102;
   color:rgb(20, 3, 3); 
   padding:3px; 
   margin:2px 0; 

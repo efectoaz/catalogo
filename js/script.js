@@ -598,7 +598,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Email: `;
     msg += `\n- Teléfono: `;
     msg += `\n- Alguna referencia del domicilio (opcional): `;
-    msg += `\n\n- Talle: `;
+    msg += `\n\n *Datos del calzado*`;
+msg += `\n- Talle (AR): `;
+
 
     // 🔹 Abrir WhatsApp
     const numero = "542291519731";
