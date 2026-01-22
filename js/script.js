@@ -80,10 +80,10 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "check!  ": ["img/ojotasblancas.jpg", "img/ojotasblancas2.jpg", "img/ojotasblancas3.jpg"],
-    "Botinetas galácticas - N 36 ": ["img/zapas.jpg", "img/boti1.jpg", "img/boti2.jpg"],
-    "Ojotas con abrojo - N 37/38 ": ["img/abrojo1.jpg", "img/abrojo2.jpg"],
-    "Animal print check! 🤎 N 35 ": ["img/animalPrint.jpg", "img/print1.jpg", "img/print2.jpg"],
+    "Ojotas clásicas blancas 🌊🏝️☀️": ["img/ojotasblancas.jpg", "img/ojotasblancas2.jpg", "img/ojotasblancas3.jpg"],
+    "Botinetas galácticas": ["img/boti1.jpg", "img/zapas.jpg", "img/boti2.jpg"],
+    "Ojotas con abrojo": ["img/abrojo1.jpg", "img/abrojo2.jpg"],
+    "Animal print check! 🤎": ["img/animalPrint.jpg", "img/print1.jpg", "img/print2.jpg"],
    
   };
 
@@ -598,6 +598,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Email: `;
     msg += `\n- Teléfono: `;
     msg += `\n- Alguna referencia del domicilio (opcional): `;
+    msg += `\n\n- Talle: `;
 
     // 🔹 Abrir WhatsApp
     const numero = "542291519731";
