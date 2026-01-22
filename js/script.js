@@ -1,4 +1,4 @@
-const minimoCompra = 50000;   // Compra mínima
+const minimoCompra = 10000;   // Compra mínima
 const minimoRegalo = 80000;   // Desde este total se activa el regalo
 const REGALO_NOMBRE = "Pote Gomitas de Ojos (30 unidades)";
 
@@ -82,7 +82,7 @@ if (modal) {
   const imagenesProducto = {
     "Ojotas clásicas blancas 🌊🏝️☀️": ["img/ojotasblancas.jpg", "img/ojotasblancas2.jpg", "img/ojotasblancas3.jpg"],
     "Botinetas galácticas": ["img/boti1.jpg", "img/zapas.jpg", "img/boti2.jpg"],
-    "Ojotas con abrojo": ["img/abrojo1.jpg", "img/abrojo2.jpg"],
+    "Ojotas con abrojo - Blancas": ["img/abrojo1.jpg", "img/abrojo2.jpg"],
     "Animal print check! 🤎": ["img/animalPrint.jpg", "img/print1.jpg", "img/print2.jpg"],
    
   };
