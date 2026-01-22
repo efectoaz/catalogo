@@ -80,7 +80,10 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "check!  ": ["img/ojotasblancas.jpg", "img/ojotasblancas2.jpg"],
+    "check!  ": ["img/ojotasblancas.jpg", "img/ojotasblancas2.jpg", "img/ojotasblancas3.jpg"],
+    "Botinetas galácticas - N 36 ": ["img/zapas.jpg", "img/boti1.jpg", "img/boti2.jpg"],
+    "Ojotas con abrojo - N 37/38 ": ["img/abrojo1.jpg", "img/abrojo2.jpg"],
+    "Animal print check! 🤎 N 35 ": ["img/animalPrint.jpg", "img/print1.jpg", "img/print2.jpg"],
    
   };
 
