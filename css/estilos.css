@@ -1532,3 +1532,32 @@ html { scroll-behavior: smooth; }
 .card {
   -webkit-tap-highlight-color: transparent;
 }
+
+.modal-talles select {
+  width: 100%;
+  padding: 8px 12px;       /* un poco más grande para tocar fácil */
+  font-size: 16px;
+  border-radius: 8px;       /* bordes más suaves */
+  border: 2px solid #007bff;/* borde azul para que resalte */
+  background-color: #f9f9f9;/* fondo suave */
+  color: #333;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.3s ease; /* animación suave al hover/focus */
+  appearance: none;          /* quita flechita nativa en algunos browsers */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23007bff" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 36px;      /* espacio para la flechita */
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+/* Hover y foco */
+.modal-talles select:hover,
+.modal-talles select:focus {
+  border-color: #0056b3;
+  background-color: #fff;
+  outline: none;
+}

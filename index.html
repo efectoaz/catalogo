@@ -104,14 +104,37 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
+
+        <!-- Imagen del producto -->
         <img id="modal-img" src="" alt="Producto">
+
+        <!-- Título y precio -->
         <p id="modal-title" class="modal-title"></p>
         <p id="modal-precio" class="modal-precio"></p>
+
+        <!-- Selector de talles de calzado -->
+        <div class="modal-talles">
+          <label for="talle-calzado">Seleccioná tu talle:</label>
+          <select id="talle-calzado">
+            <option value="">Elegí un talle</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+          </select>
+        </div>
+
+        <!-- Botón agregar al carrito -->
         <div class="modal-botones">
           <button id="modal-agregar" class="btn-carrito">Agregar al carrito</button>
         </div>
       </div>
     </div>
+
+
 
 </main>
 

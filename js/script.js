@@ -125,25 +125,26 @@ if (modal) {
     document.getElementById('modal-precio').textContent = price ? price.textContent : '';
 
     const modalAgregarBtn = document.getElementById('modal-agregar');
-    const modalConsultaBtn = document.getElementById('modal-consulta');
     if (modalAgregarBtn) {
-      modalAgregarBtn.dataset.producto = currentTitle;
-      modalAgregarBtn.dataset.precio = price ? price.textContent : '';
-    }
-    if (modalConsultaBtn) {
-      modalConsultaBtn.dataset.producto = currentTitle;
-      modalConsultaBtn.dataset.precio = price ? price.textContent : '';
+        modalAgregarBtn.dataset.producto = currentTitle;
+        modalAgregarBtn.dataset.precio = price ? price.textContent : '';
+
+        const textoPrecio = price ? price.textContent.toLowerCase() : '';
+        modalAgregarBtn.style.display = textoPrecio.includes('sin stock') ? 'none' : 'inline-block';
     }
 
-    if (modalAgregarBtn) {
-      const textoPrecio = price ? price.textContent.toLowerCase() : '';
-      if (textoPrecio.includes('sin stock')) {
-        modalAgregarBtn.style.display = 'none';
-      } else {
-        modalAgregarBtn.style.display = 'inline-block';
-      }
+    // ————————————————
+    // SCROLL AUTOMÁTICO DEL SELECT (solo cuando se abre)
+    // ————————————————
+    const talleSelect = document.getElementById("talle-calzado");
+    if (talleSelect) {
+        // Espera a que el modal se renderice
+        requestAnimationFrame(() => {
+            talleSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
     }
-  }
+}
+
 
   function actualizarModal() {
     modalImg.src = currentImages[currentIndex] || '';
@@ -386,11 +387,13 @@ document.addEventListener("DOMContentLoaded", () => {
       : carrito.map(i=>`
         <div class='carrito-item'>
           <strong>${i.nombre}${i.precio==0 ? " (REGALO)" : ""}</strong>  ${i.precio || "$0"}<br>
-          <button class='cantidad-btn restar' data-nombre='${i.nombre}'>-</button>
+          ${i.talle ? `<em>Talle: ${i.talle}</em><br>` : ""}
+          <button class='cantidad-btn restar' data-nombre='${i.nombre}' data-talle='${i.talle}'>-</button>
           ${i.cantidad}
-          <button class='cantidad-btn sumar' data-nombre='${i.nombre}'>+</button>
+          <button class='cantidad-btn sumar' data-nombre='${i.nombre}' data-talle='${i.talle}'>+</button>
         </div>
       `).join("");
+
 
     const total = calcularTotal();
     carritoCount.textContent = carrito.reduce((a,i)=>a+i.cantidad,0);
@@ -448,22 +451,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   vaciarBtn?.addEventListener("click",()=>{carrito=[];actualizarCarrito();});
 
-  document.addEventListener("click",e=>{
+  document.addEventListener("click", e => {
     if(e.target.classList.contains("sumar")){
-      const item=carrito.find(p=>p.nombre===e.target.dataset.nombre);
-      if(item)item.cantidad++;
+      const item = carrito.find(p => p.nombre === e.target.dataset.nombre && p.talle === e.target.dataset.talle);
+      if(item) item.cantidad++;
     }
     if(e.target.classList.contains("restar")){
-      const item=carrito.find(p=>p.nombre===e.target.dataset.nombre);
+      const item = carrito.find(p => p.nombre === e.target.dataset.nombre && p.talle === e.target.dataset.talle);
       if(item){
-        item.cantidad>1?item.cantidad--:carrito=carrito.filter(p=>p.nombre!==item.nombre);
+        item.cantidad > 1 
+          ? item.cantidad-- 
+          : carrito = carrito.filter(p => !(p.nombre === item.nombre && p.talle === item.talle));
       }
-    }
-    if(e.target.classList.contains("carrito-eliminar")){
-      carrito=carrito.filter(p=>p.nombre!==e.target.dataset.nombre);
     }
     actualizarCarrito();
   });
+
 
   document.querySelectorAll(".btn-carrito, .btn-consulta, #modal-agregar, #modal-consulta")
     .forEach(btn => {
@@ -475,9 +478,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const texto = btn.innerText.toLowerCase();
 
         if (texto.includes("agregar")) {
-          const ex = carrito.find(p => p.nombre === nombre);
-          if (ex) ex.cantidad++;
-          else carrito.push({ nombre, precio, cantidad: 1 });
+          const selectTalle = document.getElementById("talle-calzado");
+          const talle = selectTalle ? selectTalle.value : "";
+
+          if (!talle) {
+            mostrarToast("👟 Por favor seleccioná un talle", "warning");
+            return;
+          }
+
+          const ex = carrito.find(p => p.nombre === nombre && p.talle === talle);
+
+          if (ex) {
+            ex.cantidad++;
+          } else {
+            carrito.push({ nombre, precio, cantidad: 1, talle });
+          }
+
           actualizarCarrito();
           animarAgregar(btn);
           mostrarToast("Producto agregado al carrito 🛒", "warning");
@@ -511,10 +527,11 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     totalProductos += i.cantidad;
 
     if (i.cantidad > 1) {
-      msg += `• *${i.nombre}* — *${i.cantidad}* x ${i.precio} → *$${subtotal.toLocaleString("es-AR")}*\n`;
+      msg += `• *${i.nombre}* (Talle: ${i.talle}) — ${i.cantidad} x ${i.precio} → *$${subtotal.toLocaleString("es-AR")}*\n`;
     } else {
-      msg += `• *${i.nombre}* — ${i.precio}\n`;
+      msg += `• *${i.nombre}* (Talle: ${i.talle}) — ${i.precio}\n`;
     }
+
   });
 
   // 🔹 Compra mínima
@@ -598,9 +615,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Email: `;
     msg += `\n- Teléfono: `;
     msg += `\n- Alguna referencia del domicilio (opcional): `;
-    msg += `\n\n *Datos del calzado*`;
-msg += `\n- Talle (AR): `;
-
+ 
 
     // 🔹 Abrir WhatsApp
     const numero = "542291519731";
