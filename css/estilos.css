@@ -23,7 +23,7 @@ html, body {
   padding: 0;                           /* quita padding por defecto */
   min-width: 100vw;                     /* evita que se reduzca el ancho de la página */
   overflow-x: hidden;                   /* evita scroll horizontal inesperado */
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   background: var(--bg);                /* color de fondo global */
   color: var(--text);                   /* color de texto global */
   font-size: var(--base-font);          /* tamaño base de fuente */
@@ -76,7 +76,7 @@ header {
   line-height: 1.2;                                    /* altura de línea */
   font-weight: bold;                                   /* texto en negrita */
   padding: 0 1rem;                                     /* padding horizontal */
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 nav {
   display: flex;                                       /* layout flex para los enlaces */
@@ -355,7 +355,6 @@ nav a:hover {
   animation: fadeIn 0.25s ease;
   border: 3px solid;
   border-image: linear-gradient(45deg, var(--primary), var(--accent)) 1;
-  font-style: italic;
 }
 /* Imagen del modal */
 .modal-content img {
@@ -480,7 +479,7 @@ nav a:hover {
   align-items: center;                                 /* centrar verticalmente */
   flex-direction: column;                              /* columna (input encima de botones) */
   gap: 0.75rem;                                        /* separación entre elementos */
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 /* input de búsqueda */
 #search {
@@ -495,7 +494,7 @@ nav a:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
   box-sizing: border-box;                              /* box-sizing */
   font-weight: bold;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 /* estado focus del input para accesibilidad */
 #search:focus {
@@ -717,6 +716,7 @@ html { scroll-behavior: smooth; }
   padding: 0 1rem;                                     /* padding lateral */
   position: relative;                                  /* relativo para z-index */
   z-index: 2;                                          /* por encima del fondo */
+  font-family: 'Bebas Neue', sans-serif;
 }
 .contenedor-secciones {
   display: flex;                                       /* flex para secciones laterales */
@@ -876,7 +876,7 @@ html { scroll-behavior: smooth; }
 
   .titulo-contenedor h1 {
     font-size: 1.4rem; /* título header más pequeño */
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
   }
   
   nav a {
@@ -1212,8 +1212,8 @@ html { scroll-behavior: smooth; }
     text-align: center;
     font-weight: bold;
     font-family: 'Bebas Neue', sans-serif;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0rem;
+    margin-bottom: -1rem;
 
   }
   .modal button,

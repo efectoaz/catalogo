@@ -482,7 +482,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const talle = selectTalle ? selectTalle.value : "";
 
           if (!talle) {
-            mostrarToast("👟 Por favor seleccioná un talle", "warning");
+            mostrarToast("Por favor seleccioná un talle", "warning");
             return;
           }
 
