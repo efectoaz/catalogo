@@ -29,7 +29,7 @@ html, body {
   font-size: var(--base-font);          /* tamaño base de fuente */
 }
 header {
-  background: rgba(161, 86, 0, 0.6); /* degradado de fondo del header */
+  background: #8B5A2B; 
   padding: 0.00005rem;                                       /* espacio interno del header */
   text-align: center;                                  /* centra el contenido textual */
   position: fixed;                                     /* fija el header en la parte superior */
@@ -705,6 +705,7 @@ html { scroll-behavior: smooth; }
 .animar-carrito {
   animation: carrito-anim 0.3s ease;
 }
+
 /* clase para título animado */
 .titulo-animado {
   display: inline-block;
@@ -716,7 +717,10 @@ html { scroll-behavior: smooth; }
   padding: 0 1rem;                                     /* padding lateral */
   position: relative;                                  /* relativo para z-index */
   z-index: 2;                                          /* por encima del fondo */
-  font-family: 'Bebas Neue', sans-serif;
+  padding: 0.5rem 1rem;                                   /* padding */
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.1rem;
+  margin-top: 0%;
 }
 .contenedor-secciones {
   display: flex;                                       /* flex para secciones laterales */
@@ -780,7 +784,7 @@ html { scroll-behavior: smooth; }
     padding-right: 120px; /* deja espacio para el botón */
   }
   .hero{
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 }
 /* Tablets pequeñas / pantallas horizontales */
@@ -958,7 +962,7 @@ html { scroll-behavior: smooth; }
   z-index: 1000;
 }
 #carrito-btn {
-  background: rgba(161, 86, 0, 0.6);
+  background: #8B5A2B;
   color: white;
   border: none;
   font-size: 22px;
@@ -1004,15 +1008,12 @@ html { scroll-behavior: smooth; }
 }
 #carrito-dropdown h4 {
   font-size: 1.8rem;
-  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
+  background: #8B5A2B;
   margin: 0 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 6px;
-  /*
-  background: linear-gradient(135deg, #f3e5f5, #ede7f6);
-  border: 2px solid #ba68c8;*/
 }
 #carrito-dropdown h3 {
   font-size: 1.4rem;
@@ -1409,7 +1410,7 @@ html { scroll-behavior: smooth; }
   .instrucciones-texto {
     margin: 25px 15px;
     padding: 20px 18px;
-    margin-top: 100px;
+    margin-top: 100fanimapx;
   }
 
   .instrucciones-texto h2 {
@@ -1429,6 +1430,24 @@ html { scroll-behavior: smooth; }
     color: #f4f1f5; /* rojo suave para destacar */
     font-weight: 700;
     letter-spacing: 1px;
+  }
+    /* Botón flotante */
+  #whatsapp-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
+    padding: 14px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    margin-top: 5%;
   }
 
 }
