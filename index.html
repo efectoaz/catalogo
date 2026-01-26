@@ -15,41 +15,42 @@
 <body>
 
 <header>
+  <img src="img/logo1.jpg"
+       alt="Logo AZ"
+       style="height:50px; border-radius:50%; margin-left:10px; margin-top:10px;">
+
   <div class="titulo-contenedor">
     <p class="titulo-animado">
-  Envíos a todo el país <span class="emoji">🇦🇷</span> 
-  </p>
+      Envíos a todo el país <span class="emoji">🇦🇷</span>
+    </p>
     <nav>
       <a href="contacto.html">Contacto</a>
-      <input type="text" id="search" placeholder="🔍 Buscá un producto..." style="margin-left:0.1rem; padding:0.3rem; border-radius:5px; border:none;">
+      <input type="text" id="search" placeholder="🔍 Buscá un producto..." style="margin-left:-2rem; padding:0.3rem; border-radius:5px; border:none; margin-bottom: 1%; max-width: 100%;">
       <p id="no-results" style="display:none; text-align:center; color:#fff; margin-top:0.5rem;"></p>
-          <div id="aviso-envio-gratis" class="aviso"></div>
+      <div id="aviso-envio-gratis" class="aviso"></div>
     </nav>
   </div>
 
   <div id="carrito-contenedor">
-
     <button id="carrito-btn" aria-label="Abrir carrito">
       <i class="fas fa-shopping-cart"></i>
       <span id="carrito-count">0</span>
     </button>
 
     <div id="carrito-dropdown">
-     <span id="salir-carrito" style="cursor:pointer; float:left; font-size:20px; font-weight:bold; margin:5px;">❌</span>
-     <h3>🛍️           </h3> 
-     <h3>Tu pedido:</h3>
-     <ul id="carrito-items"></ul>
-     <div id="carrito-footer">
-      <p id="carrito-total">Total: $0</p>
-      <button id="vaciar-carrito" class="btn-vaciar">Vaciar carrito</button>
-      <button id="enviar-carrito" class="btn-enviar">Hacer pedido</button>
-
+      <span id="salir-carrito" style="cursor:pointer; float:left; font-size:20px; font-weight:bold; margin:5px;">❌</span>
+      <h3>🛍️</h3> 
+      <h3>Tu pedido:</h3>
+      <ul id="carrito-items"></ul>
+      <div id="carrito-footer">
+        <p id="carrito-total">Total: $0</p>
+        <button id="vaciar-carrito" class="btn-vaciar">Vaciar carrito</button>
+        <button id="enviar-carrito" class="btn-enviar">Hacer pedido</button>
+      </div>
     </div>
-    </div>
-
   </div>
-
 </header>
+
 
  <!-- Hero -->
 <aside class= "hero">
@@ -154,7 +155,6 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
   <span>Consultar</span>
 </div>
-
 
 <script src="js/script.js"></script>
 

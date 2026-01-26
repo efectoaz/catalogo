@@ -1,4 +1,3 @@
-
 :root {
   --primary: #0d0214;
   --accent: #B89672;
@@ -54,6 +53,7 @@ header {
   height: auto;                                        /* altura automática para mantener proporción */
   border-radius: 12px;                                 /* bordes redondeados en la imagen */
   filter: drop-shadow(0 2px 8px rgba(106,27,154,0.3)); /* sombra externa para destacar */
+  z-index: 1;                                          /* 🔹 AÑADIDO */
 }
 /* contenedor del título (centro del header) */
 .titulo-contenedor {
@@ -65,6 +65,7 @@ header {
   padding: 0 1rem;                                     /* separación interna horizontal */
   font-size: 1rem;                                     /* tamaño base para contenedor */
 }
+
 /* estilo del h1 dentro del título */
 .titulo-contenedor h1 {
   font-size: 1.5rem;                                  /* tamaño del título (ajustado para no ser gigante) */
@@ -101,7 +102,7 @@ nav a {
 }
 /* color al pasar el mouse por encima */
 nav a:hover {
-  color: var(--accent);
+  color: white;
 }
 .hero {
   text-align: center;                                  /* centra el texto del hero */
@@ -172,7 +173,7 @@ nav a:hover {
 }
 /* hover para los botones */
 .hero-buttons .btn:hover {
-  background: linear-gradient(45deg, var(--accent), var(--primary)); /* invertir degradado */
+  background: rgb(73, 62, 62);
   transform: scale(1.03);                              /* pequeño zoom */
 }
 .destacados {
@@ -257,6 +258,7 @@ nav a:hover {
   width: 100%;                                         /* ocupa todo el ancho de la tarjeta */
   border-radius: 8px;                                  /* bordes redondeados de la imagen */
   margin-bottom: 0.5rem;                               /* separación hacia el contenido */
+  height: 220px;                                       /* altura fija para consistencia */
   height: 220px;                                       /* altura fija para consistencia */
   object-fit: cover;                                   /* cubre sin deformar (recorta si hace falta) */
   transition: transform 0.3s;                          /* transición para posibles efectos */
@@ -708,7 +710,8 @@ html { scroll-behavior: smooth; }
 
 /* clase para título animado */
 .titulo-animado {
-  display: inline-block;
+  display: inline-block;                               /* inline-block para animación */
+  overflow: hidden;                                   /* oculta desbordes */
   white-space: nowrap;
   animation: slide-infinite 18s linear infinite, color-change 15s ease-in-out infinite;
   font-size: 1.3rem;                                    /* tamaño controlado */
@@ -823,7 +826,7 @@ html { scroll-behavior: smooth; }
     font-family: 'Playfair Display', serif;
     padding-right: 120px; /* deja espacio para el botón */
   }
-
+  
   #search {
     width: 95%; /* input más ancho para pantallas pequeñas */
   }
@@ -891,7 +894,10 @@ html { scroll-behavior: smooth; }
     font-weight: bold;            /* 🔹 Negrita */
     text-decoration: underline;
     padding-top: 0rem;
-    padding-right: 210px; /* deja espacio para el botón */
+    padding-right: 155px; /* deja espacio para el botón */
+  }
+    nav a:hover {
+    color: white;
   }
 
   .hero {
@@ -1295,6 +1301,7 @@ html { scroll-behavior: smooth; }
   backdrop-filter: blur(6px);
   z-index: 1000;
   margin-top: 1%;
+  margin-right: 3%;
 }
 #whatsapp-btn img {
   width: 20px;
@@ -1437,17 +1444,17 @@ html { scroll-behavior: smooth; }
     top: 20px;
     right: 20px;
     background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
-    padding: 14px 14px;
+    padding: 10px 10px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
     border-radius: 40px;
     cursor: pointer;
     color: white;
     font-size: 14px;
     backdrop-filter: blur(6px);
     z-index: 1000;
-    margin-top: 5%;
+    margin-top: 8%;
   }
 
 }
@@ -1578,4 +1585,8 @@ html { scroll-behavior: smooth; }
   border-color: #0056b3;
   background-color: #fff;
   outline: none;
+}
+/* Evita el resaltado azul en móviles */
+a, button {
+  -webkit-tap-highlight-color: transparent; /* Safari/Chrome móvil */
 }
