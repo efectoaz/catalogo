@@ -28,7 +28,7 @@ html, body {
   font-size: var(--base-font);          /* tamaño base de fuente */
 }
 header {
-  background: #B89672; 
+  background: linear-gradient(135deg, var(--primary), var(--accent)); 
   padding: 0.00005rem;                                       /* espacio interno del header */
   text-align: center;                                  /* centra el contenido textual */
   position: fixed;                                     /* fija el header en la parte superior */
