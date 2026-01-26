@@ -1,7 +1,7 @@
 
 :root {
   --primary: #0d0214;
-  --accent: #5a3402;
+  --accent: #B89672;
   /* color de fondo general de la página */
  --bg: #1c2a33;
   /* color de texto por defecto */
@@ -29,7 +29,7 @@ html, body {
   font-size: var(--base-font);          /* tamaño base de fuente */
 }
 header {
-  background: #8B5A2B; 
+  background: #B89672; 
   padding: 0.00005rem;                                       /* espacio interno del header */
   text-align: center;                                  /* centra el contenido textual */
   position: fixed;                                     /* fija el header en la parte superior */
@@ -385,7 +385,7 @@ nav a:hover {
   user-select: none;
   color: black
 }
-.close:hover { color: #c0720c; }
+.close:hover { color: #B89672; }
 /* Flechas */
 .modal-content .prev,
 .modal-content .next {
@@ -962,7 +962,7 @@ html { scroll-behavior: smooth; }
   z-index: 1000;
 }
 #carrito-btn {
-  background: #8B5A2B;
+  background: #B89672;
   color: white;
   border: none;
   font-size: 22px;
@@ -1008,7 +1008,7 @@ html { scroll-behavior: smooth; }
 }
 #carrito-dropdown h4 {
   font-size: 1.8rem;
-  background: #8B5A2B;
+  background: #B89672;
   margin: 0 0 10px;
   display: flex;
   justify-content: center;
@@ -1105,7 +1105,7 @@ html { scroll-behavior: smooth; }
   position: absolute;
   right: 20px;
   top: 80px;
-  background-color: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
+  background-color: linear-gradient(135deg, #B89672(106,27,154,0.6), #B89672(0,184,148,0.6));
   color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -1261,7 +1261,7 @@ html { scroll-behavior: smooth; }
   color: #ffffff;
   font-weight: 800;
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  border: 2px solid #9c6b01;
+  border: 2px solid #B89672;
   animation: fiestaPop 0.6s ease-out;
   padding: 4px 20px;
 }
@@ -1305,7 +1305,7 @@ html { scroll-behavior: smooth; }
   position: fixed;
   top: 70px;
   right: 20px;
-  background: #9c6b01;
+  background: #B89672;
   padding: 15px;
   border-radius: 12px;
   width: 230px;
