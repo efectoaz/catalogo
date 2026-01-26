@@ -137,12 +137,26 @@ if (modal) {
     // SCROLL AUTOMÁTICO DEL SELECT (solo cuando se abre)
     // ————————————————
     const talleSelect = document.getElementById("talle-calzado");
-    if (talleSelect) {
-        // Espera a que el modal se renderice
-        requestAnimationFrame(() => {
-            talleSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-    }
+if (talleSelect) {
+    // Limpiamos opciones anteriores
+    talleSelect.innerHTML = '<option value="">Seleccioná un talle</option>';
+
+    // Obtenemos los talles desde el data-talles de la card
+    const talles = card.dataset.talles ? card.dataset.talles.split(',') : [];
+
+    talles.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t.trim();
+        opt.textContent = t.trim();
+        talleSelect.appendChild(opt);
+    });
+
+    // Scroll automático solo cuando se abre
+    requestAnimationFrame(() => {
+        talleSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+}
+
 }
 
 
