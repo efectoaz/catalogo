@@ -53,8 +53,8 @@ header {
   height: auto;                                        /* altura automática para mantener proporción */
   border-radius: 12px;                                 /* bordes redondeados en la imagen */
   filter: drop-shadow(0 2px 8px rgba(106,27,154,0.3)); /* sombra externa para destacar */
-  z-index: 1;                                          /* 🔹 AÑADIDO */
 }
+
 /* contenedor del título (centro del header) */
 .titulo-contenedor {
   flex: 1;                                             /* ocupa espacio restante */
@@ -969,7 +969,7 @@ html { scroll-behavior: smooth; }
 }
 #carrito-btn {
   background: #B89672;
-  color: white;
+  color: black;
   border: none;
   font-size: 22px;
   cursor: pointer;
@@ -977,10 +977,11 @@ html { scroll-behavior: smooth; }
   border-radius: 50%;
   box-shadow: 0 3px 8px rgba(0,0,0,0.25);
   transition: transform 0.2s ease, background 0.3s;
+  border: 2px solid #000000;
 }
 #carrito-btn:hover {
   transform: scale(1.1);
-  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6));
+  background: linear-gradient(rgb(255, 255, 255));
 }
 #carrito-count {
   position: absolute;
