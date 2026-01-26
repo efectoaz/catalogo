@@ -23,7 +23,7 @@ html, body {
   padding: 0;                           /* quita padding por defecto */
   min-width: 100vw;                     /* evita que se reduzca el ancho de la página */
   overflow-x: hidden;                   /* evita scroll horizontal inesperado */
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: var(--bg);                /* color de fondo global */
   color: var(--text);                   /* color de texto global */
   font-size: var(--base-font);          /* tamaño base de fuente */
@@ -479,7 +479,7 @@ nav a:hover {
   align-items: center;                                 /* centrar verticalmente */
   flex-direction: column;                              /* columna (input encima de botones) */
   gap: 0.75rem;                                        /* separación entre elementos */
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 /* input de búsqueda */
 #search {
@@ -494,7 +494,7 @@ nav a:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
   box-sizing: border-box;                              /* box-sizing */
   font-weight: bold;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 /* estado focus del input para accesibilidad */
 #search:focus {
@@ -1438,7 +1438,7 @@ html { scroll-behavior: smooth; }
 }
   
 .facebook-embed {
-  margin-top: 2.5rem;
+  margin-top: 5rem;
   padding: 2rem 1rem;
   background: #162028;
   text-align: center;
