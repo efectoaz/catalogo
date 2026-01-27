@@ -624,15 +624,15 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   } else {
     msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
     msg += `\n⏱️ Entrega: 2 a 5 días hábiles`;
-    msg += `\n\n- Nombre y apellido: `;
-    msg += `\n- CUIL/DNI: `;
-    msg += `\n- Provincia: `;
-    msg += `\n- Localidad: `;
-    msg += `\n- Dirección exacta: `;
-    msg += `\n- Código postal: ${codigoPostalCliente}`;
-    msg += `\n- Email: `;
+    msg += `\n\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
-    msg += `\n- Alguna referencia del domicilio (opcional): `;
+    msg += `\n- Email: `;
+    msg += `\n- Código postal: ${codigoPostalCliente}`;
+    msg += `\n- Dirección exacta: `;
+    msg += `\n- Localidad: `;
+    msg += `\n- Provincia: `;
+    msg += `\n- CUIL/DNI: `;
+    msg += `\n- Nombre y apellido: `;
     msg += `\n\n- Si ya completaste estos datos alguna vez, podés omitirlo, a menos que quieras cambiar de dirección 😊 `;
   }
 
