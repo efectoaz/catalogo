@@ -577,6 +577,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   const cpConfirmar = document.getElementById("cp-confirmar");
   cpConfirmar.onclick = () => {
     const codigoPostalCliente = inputCP.value.trim();
+    const esMiramar = codigoPostalCliente.startsWith("7607");
 
     if (!codigoPostalCliente) {
       alert("⚠️ Por favor, ingresá tu código postal.");
@@ -610,14 +611,17 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
 
 
 
-    // 🔹 Totales finales
+     // 🔹 Totales finales
     msg += mensajeRegalo;
     totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
-    // 🔹 Datos de envío (Correo Argentino)
+    if (esMiramar) {
+    msg += `\n\n📍 *Entrega en Terminal de Miramar*`;
+    
+  } else {
     msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
     msg += `\n⏱️ Entrega: 2 a 5 días hábiles`;
     msg += `\n\n- Nombre y apellido: `;
@@ -629,7 +633,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Email: `;
     msg += `\n- Teléfono: `;
     msg += `\n- Alguna referencia del domicilio (opcional): `;
- 
+    msg += `\n\n- Si ya completaste estos datos alguna vez, podés omitirlo, a menos que quieras cambiar de dirección 😊 `;
+  }
 
     // 🔹 Abrir WhatsApp
     const numero = "542291519731";
