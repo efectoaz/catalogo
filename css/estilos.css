@@ -26,6 +26,7 @@ html, body {
   background: var(--bg);                /* color de fondo global */
   color: var(--text);                   /* color de texto global */
   font-size: var(--base-font);          /* tamaño base de fuente */
+  margin-top: 1%;
 }
 header {
   background: linear-gradient(135deg, var(--primary), var(--accent)); 
@@ -125,20 +126,7 @@ nav a:hover {
   text-shadow: 0 3px 10px rgba(0,0,0,0.6);
   letter-spacing: 1px;
 }
-/* overlay decorativo dentro del hero */
-.hero-overlay {
-  position: absolute;                                  /* posición absoluta dentro del hero */
-  width: 100%;                                         /* ocupa ancho completo */
-  height: 80%;                                         /* altura del overlay */
-  margin-top: 3rem;                                    /* separación superior visual */
-  top: 0;                                              /* arriba del hero */
-  left: 0;                                             /* a la izquierda */
-  opacity: 1;                                          /* opacidad completa (puedes bajar para más transparencia) */
-  background: linear-gradient(135deg, rgba(38, 0, 61, 0.6), rgba(0, 0, 0, 0.6)); /* degradado semitransparente */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              /* sombra suave */
-  backdrop-filter: blur(2px);                          /* desenfoque del fondo (si el navegador lo soporta) */
-  z-index: 1;   
-}
+
 /* títulos dentro del hero */
 .hero h2, .hero p {
   position: relative;                                  /* posicionamiento relativo (frente al overlay) */
@@ -942,7 +930,7 @@ html { scroll-behavior: smooth; }
     font-size: 0.85rem;
     padding: 0.4rem 0.6rem;
   }
-  
+
 }
 @media (max-with: 331px) {
   nav a {
@@ -1290,6 +1278,7 @@ html { scroll-behavior: smooth; }
   padding-bottom: 0%;
   margin-right: 8%;
   margin-top: 0%;
+  margin-bottom: 1%;
 }
 /* Botón flotante */
 #whatsapp-btn {
