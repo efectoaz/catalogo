@@ -482,6 +482,7 @@ nav a:hover {
   flex-direction: column;                              /* columna (input encima de botones) */
   gap: 0.75rem;                                        /* separación entre elementos */
   font-family: 'Montserrat', sans-serif;
+  
 }
 /* input de búsqueda */
 #search {
@@ -497,6 +498,7 @@ nav a:hover {
   box-sizing: border-box;                              /* box-sizing */
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
+  
 }
 /* estado focus del input para accesibilidad */
 #search:focus {
@@ -723,7 +725,8 @@ html { scroll-behavior: smooth; }
   padding: 0.5rem 1rem;                                   /* padding */
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 0.1rem;
-  margin-top: 0%;
+  margin-top: 0.01%;
+
 }
 .contenedor-secciones {
   display: flex;                                       /* flex para secciones laterales */
@@ -829,6 +832,7 @@ html { scroll-behavior: smooth; }
   
   #search {
     width: 95%; /* input más ancho para pantallas pequeñas */
+    margin-bottom: 0.1rem;
   }
 }
 /* Móviles / pantallas pequeñas */
@@ -917,7 +921,7 @@ html { scroll-behavior: smooth; }
   #search {
     width: 95%; /* input ocupa casi todo el ancho */
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.1rem;
   }
 
   .contenedor-secciones {
@@ -1282,8 +1286,10 @@ html { scroll-behavior: smooth; }
   border-radius:8px; 
   font-weight:bold; 
   text-align:center;
-  font-size: 25px;
+  font-size: 20px;
   padding-bottom: 0%;
+  margin-right: 8%;
+  margin-top: 0%;
 }
 /* Botón flotante */
 #whatsapp-btn {
