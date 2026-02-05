@@ -84,6 +84,7 @@ if (modal) {
     "Botinetas galácticas": ["img/boti1.jpg", "img/zapas.jpg", "img/boti2.jpg"],
     "Ojotas con abrojo - Blancas": ["img/abrojo1.jpg", "img/abrojo2.jpg"],
     "Animal print check! 🤎": ["img/animalPrint.jpg", "img/print1.jpg", "img/print2.jpg"],
+    "Botas": ["img/bs1.jpg", "img/bs2.jpg", "img/bs3.jpg", "img/bs4.jpg"],
    
   };
 
