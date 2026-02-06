@@ -1,5 +1,5 @@
 const minimoCompra = 10000;   // Compra mínima
-const minimoRegalo = 80000;   // Desde este total se activa el regalo
+const minimoRegalo = 50000;   // Desde este total se activa el regalo
 const REGALO_NOMBRE = "Pote Gomitas de Ojos (30 unidades)";
 
 
@@ -595,7 +595,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     // 🔹 Calcular envío con regla de envío gratis
     let costoEnvio;
 
-    if (PROMO_ACTIVA === "envio" && total >= 80000) {
+    if (PROMO_ACTIVA === "envio" && total >= 50000) {
       costoEnvio = 0;
     } else {
       costoEnvio = calcularCostoEnvio(codigoPostalCliente);
