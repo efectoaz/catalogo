@@ -238,6 +238,7 @@ if (talleSelect) {
 // BUSCADOR DE PRODUCTOS
 // ========================
 document.addEventListener("DOMContentLoaded", () => {
+  sincronizarCarritoConHTML(); 
   const searchInput = document.getElementById("search");
   const cards = document.querySelectorAll(".card");
   const noResults = document.getElementById("no-results");
@@ -711,5 +712,67 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   }
 }
 
+// ========================
+// SINCRONIZAR CARRITO CON PRODUCTOS Y TALLES DEL HTML (SILENCIOSO)
+// ========================
+function sincronizarCarritoConHTML() {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  if (carrito.length === 0) return;
+
+  // 🔹 Leer productos y talles actuales del HTML
+  const productosHTML = {};
+  document.querySelectorAll(".card").forEach(card => {
+    const nombre = card.querySelector("h3")?.innerText.trim();
+    const precioTexto = card.querySelector("p")?.innerText.trim();
+    const talles = card.dataset.talles
+      ? card.dataset.talles.split(",").map(t => t.trim())
+      : [];
+
+    if (nombre && precioTexto) {
+      const precio = parseFloat(
+        precioTexto.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+      );
+
+      productosHTML[nombre] = {
+        precio,
+        talles
+      };
+    }
+  });
+
+  let cambios = false;
+
+  carrito = carrito.filter(item => {
+    const producto = productosHTML[item.nombre];
+
+    // ❌ Producto eliminado
+    if (!producto) {
+      cambios = true;
+      return false;
+    }
+
+    // ❌ Talle eliminado
+    if (item.talle && !producto.talles.includes(item.talle)) {
+      cambios = true;
+      return false;
+    }
+
+    // 🔄 Precio actualizado
+    const precioCarrito = parseFloat(
+      item.precio.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+    );
+
+    if (precioCarrito !== producto.precio) {
+      item.precio = `$${producto.precio.toLocaleString("es-AR")}`;
+      cambios = true;
+    }
+
+    return true;
+  });
+
+  if (cambios) {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  }
+}
 
 
