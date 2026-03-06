@@ -597,7 +597,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
 
     msg += `\n\n📍 *Retiro en Miramar*`;
 
-    const numero = "542236010443";
+    const numero = "542291519731";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
 
