@@ -1513,6 +1513,7 @@ html { scroll-behavior: smooth; }
   max-width: 320px;
   width: 90%;
   text-align: center;
+  
 }
 .modal-cp-content input {
   width: 100%;
@@ -1525,13 +1526,15 @@ html { scroll-behavior: smooth; }
 .modal-cp-buttons {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 .modal-cp-buttons button {
-  padding: 8px 15px;
-  font-size: 15px;
+  padding: 3px 6px;
+  font-size: 17px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+ 
 }
 #cp-cancelar {
   background: #ccc;
@@ -1550,8 +1553,15 @@ html { scroll-behavior: smooth; }
 .animar-agregar {
   animation: vibrar 0.35s linear;
 }
+
 .card {
   -webkit-tap-highlight-color: transparent;
+}
+.carrito-confianza {
+  font-size: 12px;
+  color: #555;
+  text-align: center;
+  margin-top: 6px;
 }
 
 .modal-talles select {

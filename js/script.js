@@ -577,6 +577,33 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   }
 
   // Botón confirmar código postal
+  const btnRetirarMiramar = document.getElementById("retirar-miramar");
+
+  btnRetirarMiramar?.addEventListener("click", () => {
+
+    const costoEnvio = 0; // Igual que Miramar
+    const totalFinal = total + costoEnvio;
+
+    let mensajeRegalo = "";
+
+    if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+      mensajeRegalo = `\n🎁 ¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!`;
+    }
+
+    msg += mensajeRegalo;
+    msg += `\n📦 *Total de productos:* ${totalProductos}`;
+    msg += `\n🚚 *Envío:* $0`;
+    msg += `\n\n💳 *Total a pagar:* $${totalFinal.toLocaleString("es-AR")}`;
+
+    msg += `\n\n📍 *Retiro en Miramar*`;
+
+    const numero = "542236010443";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank");
+
+    modalCP.style.display = "none";
+  });
+
   const cpConfirmar = document.getElementById("cp-confirmar");
   cpConfirmar.onclick = () => {
     const codigoPostalCliente = inputCP.value.trim();
@@ -625,8 +652,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n\n📍 *Entrega en Terminal de Miramar*`;
     
   } else {
-    msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
-    msg += `\n⏱️ Entrega: 2 a 5 días hábiles`;
     msg += `\n\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
     msg += `\n- Email: `;
@@ -634,9 +659,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Dirección exacta: `;
     msg += `\n- Localidad: `;
     msg += `\n- Provincia: `;
-    msg += `\n- CUIL/DNI: `;
     msg += `\n- Nombre y apellido: `;
-    msg += `\n\n- Si ya completaste estos datos alguna vez, podés omitirlo, a menos que quieras cambiar de dirección 😊 `;
+    msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
   }
 
     // 🔹 Abrir WhatsApp
