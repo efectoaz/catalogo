@@ -476,12 +476,11 @@ nav a:active {
 /* focus más limpio y moderno */
 #search:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(217, 70, 239, 0.15);
 }
 
 /* NO RESULTS */
 #no-results {
-  color: #666;
+  color: #000000;
   font-size: 0.95rem;
   text-align: center;
   margin-top: 0.75rem;
@@ -514,7 +513,6 @@ nav a:active {
 #no-results a:hover {
   transform: translateY(-1px);
   background: var(--accent);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
 }
 main {
   max-width: var(--content-max-w);                    
