@@ -1217,7 +1217,7 @@ html { scroll-behavior: smooth; }
   flex-direction: column;
   animation: fadeIn 0.3s ease;
   overflow: hidden;
-  border: 1px solid rgba(217, 70, 239, 0.4);
+  border: 2px solid #B89672;
   backdrop-filter: blur(12px);
   border-radius: 18px;
 }
