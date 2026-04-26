@@ -148,7 +148,7 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-    const mensaje = "Hola, vengo del catálogo y tengo una consulta..";
+    const mensaje = "Hola, vengo del catálogo y tengo una consulta...";
     
     const link = "https://wa.me/542291519731?text=" + encodeURIComponent(mensaje);
     
@@ -1273,7 +1273,8 @@ let currentY = 0;
 
 const modalImg = document.querySelector(".modal-content img");
 
-modalImg.addEventListener("mousedown", (e) => {
+if (modalImg) {
+  modalImg.addEventListener("mousedown", (e) => {
   if (!modalImg.classList.contains("zoomed")) return;
 
   isDragging = true;
@@ -1282,7 +1283,8 @@ modalImg.addEventListener("mousedown", (e) => {
 
   modalImg.style.cursor = "grabbing";
 });
-
+  
+}
 document.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
 
@@ -1381,11 +1383,13 @@ const menuBtn = document.getElementById("menu-btn");
 const menuPanel = document.getElementById("menu-panel");
 const menuCatalogo = document.getElementById("menu-catalogo");
 
-menuBtn.addEventListener("click", () => {
-  menuPanel.classList.toggle("active");
-});
-
-menuCatalogo.addEventListener("click", (e) => {
+if (menuBtn && menuPanel) {
+  menuBtn.addEventListener("click", () => {
+    menuPanel.classList.toggle("active");
+  });
+}
+if (menuCatalogo) {
+  menuCatalogo.addEventListener("click", (e) => {
   e.preventDefault();
 
   if (window.location.pathname.includes("contacto.html")) {
@@ -1394,7 +1398,7 @@ menuCatalogo.addEventListener("click", (e) => {
     window.location.href = "contacto.html";
   }
 });
-
+}
 
 function animarCarrito() {
   const btn = document.getElementById("carrito-btn");
