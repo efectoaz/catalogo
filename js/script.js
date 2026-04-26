@@ -1156,11 +1156,12 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   if (PROMO_ACTIVA === "ninguna") {
     if (total < minimoCompra) {
-      aviso.innerHTML = `🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨`;
+      aviso.innerHTML = ``;
       aviso.style.display = "block";
     } 
     else {
-      aviso.innerHTML = `🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨`;
+      aviso.innerHTML = ``;
+      //aviso.innerHTML = `🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨`;
       aviso.style.display = "block";
     }
   }
