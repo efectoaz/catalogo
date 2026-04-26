@@ -125,7 +125,7 @@ nav a:active {
   color: white;
   position: absolute;
   left: 50%;
-  top: 26%;
+  top: 20%;
   transform: translateX(-50%);
   border-radius: 10%;
   white-space: nowrap;
@@ -558,7 +558,6 @@ footer p {
   transition: background 0.3s, transform 0.3s, color 0.3s;
   font-size: 1rem;                                 
   background: transparent;       
-  padding-top: 10%;
 }
 
 
@@ -911,6 +910,12 @@ html { scroll-behavior: smooth; }
     gap: 0.3rem;
     margin-top: 20%;
   }
+  .social-buttons {
+                          
+  margin-top: 4rem;   
+     
+}
+
   
   body {
     margin-top: -35%;

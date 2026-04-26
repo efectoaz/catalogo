@@ -1308,9 +1308,11 @@ document.addEventListener("mousemove", (e) => {
 
 document.addEventListener("mouseup", () => {
   isDragging = false;
-  modalImg.style.cursor = "grab";
-});
 
+  if (modalImg) {
+    modalImg.style.cursor = "grab";
+  }
+});
 
 document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("click", () => {
