@@ -809,7 +809,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nombre = e.target.dataset.nombre;
     const item = carrito.find(p => p.nombre === nombre);
 
-    if (!validarStock(nombre, carrito)) return;
+    if (!validarStock(nombre, carrito, talleSeleccionado)) return;
 
     if (item) item.cantidad++;
     carritoCount.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
@@ -1463,10 +1463,7 @@ document.querySelectorAll('.footer-credito a').forEach(el => {
 
     // Detecta si el dispositivo es táctil (sin hover, típico de móviles)
     if (window.matchMedia("(hover: none)").matches) {
-
-      // Evita que el link navegue inmediatamente
-      e.preventDefault();
-
+    
       // 🔽 Cierra cualquier tooltip que esté abierto
       document.querySelectorAll('.footer-credito a')
         .forEach(a => a.classList.remove('active'));
