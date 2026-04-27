@@ -808,9 +808,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.classList.contains("sumar")) {
     const nombre = e.target.dataset.nombre;
     const item = carrito.find(p => p.nombre === nombre);
-
-    if (!validarStock(nombre, carrito, talleSeleccionado)) return;
-
+    const stockMax = STOCK_PRODUCTOS[nombre];
+    if (stockMax !== undefined && item.cantidad >= stockMax) return;
     if (item) item.cantidad++;
     carritoCount.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
     }
