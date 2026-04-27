@@ -1222,7 +1222,7 @@ html { scroll-behavior: smooth; }
 
 #carrito-dropdown h4 {
   font-size: 1.8rem;
-  color: #7b1fa2;
+  color: #B89672;
   margin: 0 0 10px;
   display: flex;
   justify-content: center;
@@ -1279,7 +1279,7 @@ html { scroll-behavior: smooth; }
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  border-bottom: 3px solid #680263;
+  border-bottom: 3px solid #B89672;
   flex-wrap: nowrap;   /* evitas que se vaya a otra línea */
   overflow: visible;   /* para que la línea no se corte */
   background: rgba(255,255,255,0.06);
@@ -1340,9 +1340,9 @@ html { scroll-behavior: smooth; }
 }
 
 .cantidad-btn {
-  background: linear-gradient(1deg, #FFFFFF 0%, #F5E6FF 100%);
+  background: linear-gradient(135deg, var(--primary), var(--accent)); 
   border: none;
-  color: #110b0b;
+  color: #ffffff;
 
   padding: 6px 12px;
   border-radius: 10px;
@@ -1366,7 +1366,7 @@ html { scroll-behavior: smooth; }
 }
 
 .btn-vaciar {
-  background: linear-gradient(135deg, #ff4d4d, #ff1744);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #fff;
   border: none;
   
@@ -2648,3 +2648,6 @@ a {
   margin-top: 10px;
   display: block;
 }
+.salir-carrito{
+  margin-top: 20%;
+  }
