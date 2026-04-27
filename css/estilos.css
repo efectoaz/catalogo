@@ -147,7 +147,7 @@ nav a:active {
   background: white;
   border: 3px solid #B89672;
   border-radius: 15px;
-  padding: 0.3rem;
+  padding: 0.5rem;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   box-shadow: 0 6px 18px rgba(233, 30, 99, 0.15);
@@ -167,23 +167,26 @@ nav a:active {
 .card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 182, 217, 0.3), transparent);
-  transition: left 0.5s ease;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(184,150,114,0.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
   z-index: 0;
+  pointer-events: none;
 }
 
 .card:hover::before {
-  left: 100%;
+  opacity: 1;
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(233, 30, 99, 0.25);
+  transform: translateY(-8px);
   border-color: #B89672;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
 }
 
 /* imagen principal de la tarjeta */
@@ -205,6 +208,7 @@ nav a:active {
   height: 220px;
   overflow: hidden;
   z-index: 1;
+  
 }
 
 .card:hover img {
@@ -216,7 +220,7 @@ nav a:active {
   color: #B89672;
   margin: 0.25rem 0;
   font-size: 1.35rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 3px #B89672(255, 0, 0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -323,7 +327,7 @@ nav a:active {
   border: 3px solid #000000;
   border-radius: 20px;
   
-  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  box-shadow: 0 25px 60px #B89672(255, 18, 18);
 }
 
 /* Imagen del modal */
